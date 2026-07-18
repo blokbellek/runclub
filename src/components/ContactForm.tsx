@@ -26,7 +26,7 @@ export default function ContactForm() {
       const lastSubmission = localStorage.getItem('lastFormSubmission');
       if (lastSubmission) {
         const timePassed = Date.now() - parseInt(lastSubmission);
-        const cooldownDuration = 30 * 60 * 1000; // 30 dakika
+        const cooldownDuration = 3 * 60 * 1000; // 3 dakika
         
         if (timePassed < cooldownDuration) {
           const remainingTime = Math.ceil((cooldownDuration - timePassed) / 1000 / 60);
@@ -53,7 +53,7 @@ export default function ContactForm() {
     const lastSubmission = localStorage.getItem('lastFormSubmission');
     if (lastSubmission) {
       const timePassed = Date.now() - parseInt(lastSubmission);
-      const cooldownDuration = 30 * 60 * 1000; // 30 dakika
+      const cooldownDuration = 3 * 60 * 1000; // 3 dakika
       
       if (timePassed < cooldownDuration) {
         const remainingMinutes = Math.ceil((cooldownDuration - timePassed) / 1000 / 60);
@@ -92,7 +92,7 @@ export default function ContactForm() {
         setSubmitStatus("success");
         // Başarılı gönderim zamanını kaydet
         localStorage.setItem('lastFormSubmission', Date.now().toString());
-        setCooldownTime(30);
+        setCooldownTime(3);
         
         // Form'u sıfırla
         setFormData({
@@ -306,7 +306,7 @@ export default function ContactForm() {
               </p>
               <p className="text-sm text-orange-700">
                 Spam koruması nedeniyle <strong>{cooldownTime} dakika</strong> sonra tekrar deneyebilirsiniz.
-                <br />Her kullanıcı 30 dakikada bir başvuru yapabilir.
+                <br />Her kullanıcı 3 dakikada bir başvuru yapabilir.
               </p>
             </div>
           )}
