@@ -5,6 +5,7 @@ import FeaturesSection from "@/components/FeaturesSection";
 import ExploreSection from "@/components/ExploreSection";
 import CTASection from "@/components/CTASection";
 import ContactSection from "@/components/ContactSection";
+import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
         <ExploreSection />
         <CTASection />
         <ContactSection />
+        <ContactForm />
       </main>
       <Footer />
     </div>

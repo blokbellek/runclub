@@ -56,13 +56,13 @@ export default function ContactSection() {
           
           <div>
             <div className="text-xs font-bold tracking-wider text-[rgb(81,81,81)] mb-2">
-              KAYIT
+              E-POSTA
             </div>
             <a 
-              href="/program#contact-form"
+              href="mailto:info@cappadociarunclub.com"
               className="text-lg text-[rgb(229,32,52)] hover:underline"
             >
-              Başvuru formuna git →
+              info@cappadociarunclub.com
             </a>
           </div>
         </div>

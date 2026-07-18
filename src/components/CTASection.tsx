@@ -36,7 +36,7 @@ export default function CTASection() {
         </div>
         
         <Link 
-          href="/program#contact-form"
+          href="#contact-form"
           className="inline-block px-12 py-5 text-lg font-black text-white bg-[rgb(229,32,52)] rounded-[10px] transition-all duration-300 hover:bg-black hover:scale-105"
         >
           KAYIT OL →

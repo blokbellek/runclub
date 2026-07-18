@@ -3,18 +3,18 @@ import Link from "next/link";
 export default function ExploreSection() {
   const links = [
     {
-      title: "PROGRAM",
-      subtitle: "Haftalık program.",
-      description: "Tüm seviyelere açık, tamamen ücretsiz koşularımızın detayları.",
-      cta: "ANTRENMANLAR",
-      href: "/program"
-    },
-    {
       title: "GALERİ",
       subtitle: "Kareler.",
       description: "Kapadokya'daki koşularımızdan ve kulüp anlarımızdan kareler.",
       cta: "GALERİ",
       href: "#gallery"
+    },
+    {
+      title: "İLETİŞİM",
+      subtitle: "Bize ulaşın.",
+      description: "Kulüp hakkında bilgi almak ve aramıza katılmak için iletişime geçin.",
+      cta: "İLETİŞİM",
+      href: "#contact-form"
     },
     {
       title: "KVKK",

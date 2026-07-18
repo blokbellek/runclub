@@ -17,13 +17,10 @@ export default function Header() {
           <Link href="/#about" className="text-[rgb(81,81,81)] hover:text-black transition-colors text-base font-normal">
             Hakkımızda
           </Link>
-          <Link href="/program" className="text-[rgb(81,81,81)] hover:text-black transition-colors text-base font-normal">
-            Program
-          </Link>
           <Link href="#gallery" className="text-[rgb(81,81,81)] hover:text-black transition-colors text-base font-normal">
             Galeri
           </Link>
-          <Link href="/program#contact-form" className="text-[rgb(81,81,81)] hover:text-black transition-colors text-base font-normal">
+          <Link href="#contact-form" className="text-[rgb(81,81,81)] hover:text-black transition-colors text-base font-normal">
             Bize Katılın
           </Link>
         </nav>
