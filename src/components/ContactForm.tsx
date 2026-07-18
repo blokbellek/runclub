@@ -100,9 +100,21 @@ export default function ContactForm() {
               placeholder="05XX XXX XX XX"
               required
               value={formData.phone}
-              onChange={(e) => setFormData({...formData, phone: e.target.value})}
+              onChange={(e) => {
+                const value = e.target.value.replace(/\D/g, '');
+                if (value.length <= 11) {
+                  setFormData({...formData, phone: value});
+                }
+              }}
+              pattern="[0-9]{10,11}"
+              inputMode="numeric"
+              maxLength={11}
+              title="Lütfen sadece rakam giriniz (10-11 haneli telefon numarası)"
               className="w-full px-5 py-4 text-base border-2 border-[rgb(230,230,230)] rounded-xl bg-white text-black focus:border-[rgb(229,32,52)] focus:outline-none transition-all shadow-sm hover:border-[rgb(200,200,200)]"
             />
+            <p className="text-xs text-[rgb(120,120,120)] mt-2">
+              📱 Sadece rakam giriniz (Örn: 05XXXXXXXXX)
+            </p>
           </div>
           
           <div>
