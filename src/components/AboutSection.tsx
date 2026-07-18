@@ -1,6 +1,6 @@
 export default function AboutSection() {
   return (
-    <section id="about" className="py-24 px-8 bg-white">
+    <section id="about" className="py-24 px-8 bg-white scroll-mt-24">
       <div className="max-w-6xl mx-auto">
         <div className="text-xs tracking-wider text-[rgb(81,81,81)] mb-4">
           01 / HAKKIMIZDA

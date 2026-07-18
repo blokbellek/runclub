@@ -3,7 +3,7 @@ import { HamburgerIcon } from "./icons";
 
 export default function Header() {
   return (
-    <header className="w-full px-8 py-5 text-[rgb(81,81,81)]">
+    <header className="w-full px-8 py-5 text-[rgb(81,81,81)] sticky top-0 z-50 bg-white shadow-sm">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="text-xl font-bold text-black hover:opacity-80 transition-opacity">
           CAPPADOCIA RUN CLUB
@@ -11,16 +11,16 @@ export default function Header() {
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
-          <Link href="/" className="text-[rgb(81,81,81)] hover:text-black transition-colors text-base font-normal">
+          <Link href="/" className="text-[rgb(81,81,81)] hover:text-[rgb(229,32,52)] transition-all duration-300 ease-in-out text-base font-normal">
             Home
           </Link>
-          <Link href="/#about" className="text-[rgb(81,81,81)] hover:text-black transition-colors text-base font-normal">
+          <Link href="/#about" className="text-[rgb(81,81,81)] hover:text-[rgb(229,32,52)] transition-all duration-300 ease-in-out text-base font-normal">
             Hakkımızda
           </Link>
-          <Link href="#gallery" className="text-[rgb(81,81,81)] hover:text-black transition-colors text-base font-normal">
+          <Link href="#gallery" className="text-[rgb(81,81,81)] hover:text-[rgb(229,32,52)] transition-all duration-300 ease-in-out text-base font-normal">
             Galeri
           </Link>
-          <Link href="#contact-form" className="text-[rgb(81,81,81)] hover:text-black transition-colors text-base font-normal">
+          <Link href="#contact-form" className="text-[rgb(81,81,81)] hover:text-[rgb(229,32,52)] transition-all duration-300 ease-in-out text-base font-normal">
             Bize Katılın
           </Link>
         </nav>
