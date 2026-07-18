@@ -66,111 +66,114 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contact-form" className="py-16 px-8 bg-white scroll-mt-24">
-      <div className="max-w-[600px] mx-auto">
-        <h2 
-          className="text-4xl font-bold text-black text-center mb-5"
-          style={{ fontFamily: "Cambria, Georgia, 'Times New Roman', Times, serif" }}
-        >
-          Başvuru Formu
-        </h2>
-        
-        <p className="text-sm text-[rgb(81,81,81)] text-center mb-8">
-          Koşu kulübümüze herkes katılabilir! Aşağıdaki formu doldurarak sizinle iletişime geçmemizi sağlayabilirsiniz.
-        </p>
-        
+    <section id="contact-form" className="scroll-mt-24">
+      <div className="max-w-[700px] mx-auto bg-gradient-to-br from-white to-[rgb(252,252,252)] p-8 md:p-12 rounded-3xl shadow-xl border border-[rgb(230,230,230)]">
         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-          <input
-            type="text"
-            placeholder="Adınız"
-            required
-            value={formData.name}
-            onChange={(e) => setFormData({...formData, name: e.target.value})}
-            className="w-full px-4 py-3 text-sm border border-[rgb(200,200,200)] rounded-[5px] bg-white text-[rgb(58,58,58)] focus:border-[rgb(81,81,81)] focus:outline-none transition-colors"
-          />
+          <div>
+            <label className="block text-xs font-bold text-[rgb(81,81,81)] mb-2 tracking-wider">AD SOYAD *</label>
+            <input
+              type="text"
+              placeholder="Adınızı giriniz"
+              required
+              value={formData.name}
+              onChange={(e) => setFormData({...formData, name: e.target.value})}
+              className="w-full px-5 py-4 text-base border-2 border-[rgb(230,230,230)] rounded-xl bg-white text-black focus:border-[rgb(229,32,52)] focus:outline-none transition-all shadow-sm hover:border-[rgb(200,200,200)]"
+            />
+          </div>
           
-          <input
-            type="email"
-            placeholder="E-posta adresiniz"
-            required
-            value={formData.email}
-            onChange={(e) => setFormData({...formData, email: e.target.value})}
-            className="w-full px-4 py-3 text-sm border border-[rgb(200,200,200)] rounded-[5px] bg-white text-[rgb(58,58,58)] focus:border-[rgb(81,81,81)] focus:outline-none transition-colors"
-          />
+          <div>
+            <label className="block text-xs font-bold text-[rgb(81,81,81)] mb-2 tracking-wider">E-POSTA *</label>
+            <input
+              type="email"
+              placeholder="ornek@email.com"
+              required
+              value={formData.email}
+              onChange={(e) => setFormData({...formData, email: e.target.value})}
+              className="w-full px-5 py-4 text-base border-2 border-[rgb(230,230,230)] rounded-xl bg-white text-black focus:border-[rgb(229,32,52)] focus:outline-none transition-all shadow-sm hover:border-[rgb(200,200,200)]"
+            />
+          </div>
           
-          <input
-            type="tel"
-            placeholder="Telefon Numaranız"
-            required
-            value={formData.phone}
-            onChange={(e) => setFormData({...formData, phone: e.target.value})}
-            className="w-full px-4 py-3 text-sm border border-[rgb(200,200,200)] rounded-[5px] bg-white text-[rgb(58,58,58)] focus:border-[rgb(81,81,81)] focus:outline-none transition-colors"
-          />
+          <div>
+            <label className="block text-xs font-bold text-[rgb(81,81,81)] mb-2 tracking-wider">TELEFON *</label>
+            <input
+              type="tel"
+              placeholder="05XX XXX XX XX"
+              required
+              value={formData.phone}
+              onChange={(e) => setFormData({...formData, phone: e.target.value})}
+              className="w-full px-5 py-4 text-base border-2 border-[rgb(230,230,230)] rounded-xl bg-white text-black focus:border-[rgb(229,32,52)] focus:outline-none transition-all shadow-sm hover:border-[rgb(200,200,200)]"
+            />
+          </div>
           
-          <input
-            type="text"
-            placeholder="Instagram kullanıcı adı"
-            required
-            value={formData.instagram}
-            onChange={(e) => setFormData({...formData, instagram: e.target.value})}
-            className="w-full px-4 py-3 text-sm border border-[rgb(200,200,200)] rounded-[5px] bg-white text-[rgb(58,58,58)] focus:border-[rgb(81,81,81)] focus:outline-none transition-colors"
-          />
+          <div>
+            <label className="block text-xs font-bold text-[rgb(81,81,81)] mb-2 tracking-wider">INSTAGRAM *</label>
+            <input
+              type="text"
+              placeholder="@kullaniciadi"
+              required
+              value={formData.instagram}
+              onChange={(e) => setFormData({...formData, instagram: e.target.value})}
+              className="w-full px-5 py-4 text-base border-2 border-[rgb(230,230,230)] rounded-xl bg-white text-black focus:border-[rgb(229,32,52)] focus:outline-none transition-all shadow-sm hover:border-[rgb(200,200,200)]"
+            />
+          </div>
           
-          <div className="flex flex-col gap-2">
-            <p className="text-sm text-[rgb(81,81,81)] mb-1">
-              Aktif olarak koşuyor musunuz?
+          <div className="bg-[rgb(250,250,250)] p-5 rounded-xl border-2 border-[rgb(240,240,240)]">
+            <p className="text-xs font-bold text-[rgb(81,81,81)] mb-3 tracking-wider">
+              AKTİF KOŞUCU MUSUNUZ? *
             </p>
-            <div className="flex gap-6">
-              <label className="flex items-center gap-2 text-sm text-[rgb(81,81,81)] cursor-pointer">
+            <div className="flex gap-4">
+              <label className="flex-1 flex items-center justify-center gap-2 px-4 py-3 text-base bg-white border-2 border-[rgb(230,230,230)] rounded-lg cursor-pointer hover:border-[rgb(229,32,52)] transition-all has-[:checked]:border-[rgb(229,32,52)] has-[:checked]:bg-[rgb(229,32,52)]/5">
                 <input
                   type="radio"
                   name="isActiveRunner"
                   value="yes"
                   required
                   onChange={(e) => setFormData({...formData, isActiveRunner: e.target.value})}
-                  className="cursor-pointer"
+                  className="cursor-pointer w-4 h-4"
                 />
-                Evet
+                <span className="font-medium">Evet</span>
               </label>
-              <label className="flex items-center gap-2 text-sm text-[rgb(81,81,81)] cursor-pointer">
+              <label className="flex-1 flex items-center justify-center gap-2 px-4 py-3 text-base bg-white border-2 border-[rgb(230,230,230)] rounded-lg cursor-pointer hover:border-[rgb(229,32,52)] transition-all has-[:checked]:border-[rgb(229,32,52)] has-[:checked]:bg-[rgb(229,32,52)]/5">
                 <input
                   type="radio"
                   name="isActiveRunner"
                   value="no"
                   onChange={(e) => setFormData({...formData, isActiveRunner: e.target.value})}
-                  className="cursor-pointer"
+                  className="cursor-pointer w-4 h-4"
                 />
-                Hayır
+                <span className="font-medium">Hayır</span>
               </label>
             </div>
           </div>
           
-          <p className="text-sm text-[rgb(81,81,81)]">
-            Başvurunuzda sosyal medya üzerinden size ulaşabilmemiz için{" "}
-            <Link 
-              href="https://www.instagram.com/cappadociarunclub?igsh=dWtseHcwZ212YmRq" 
-              target="_blank"
-              className="text-[rgb(229,32,52)] underline hover:opacity-80"
-            >
-              @cappadociarunclub
-            </Link>
-            {" "}hesabını takip etmeniz gerekmektedir.
-          </p>
+          <div className="bg-blue-50 p-4 rounded-xl border-2 border-blue-200">
+            <p className="text-sm text-blue-900 leading-relaxed">
+              📸 Başvurunuzda sosyal medya üzerinden size ulaşabilmemiz için{" "}
+              <Link 
+                href="https://www.instagram.com/cappadociarunclub?igsh=dWtseHcwZ212YmRq" 
+                target="_blank"
+                className="text-[rgb(229,32,52)] font-bold underline hover:opacity-80"
+              >
+                @cappadociarunclub
+              </Link>
+              {" "}hesabını takip etmeniz gerekmektedir.
+            </p>
+          </div>
           
-          <label className="flex items-start gap-2 text-sm text-[rgb(81,81,81)] cursor-pointer">
+          <label className="flex items-start gap-3 p-4 bg-gray-50 rounded-xl border-2 border-gray-200 cursor-pointer hover:border-gray-300 transition-all">
             <input
               type="checkbox"
               required
               checked={formData.consent}
               onChange={(e) => setFormData({...formData, consent: e.target.checked})}
-              className="mt-1 cursor-pointer"
+              className="mt-1 cursor-pointer w-5 h-5"
             />
-            <span>
+            <span className="text-sm text-[rgb(60,60,60)] leading-relaxed">
               Kişisel verilerimin işlenmesine yönelik paylaşılan{" "}
               <Link 
                 href="/aydinlatma-metni" 
                 target="_blank"
-                className="text-[rgb(0,123,255)] underline hover:opacity-80"
+                className="text-[rgb(0,123,255)] font-semibold underline hover:opacity-80"
               >
                 Aydınlatma Metni
               </Link>
@@ -178,34 +181,44 @@ export default function ContactForm() {
             </span>
           </label>
           
-          <Link
-            href="https://chat.whatsapp.com/IQtWQjP9HnG0PHgkPCiIVW?s=cl&p=i&ilr=4"
-            target="_blank"
-            className="text-sm text-[rgb(0,123,255)] underline hover:opacity-80 text-center"
-          >
-            Başvurunuz sonuçlanana kadar Whatsapp duyuru kanalından bizi takip etmek için tıklayınız.
-          </Link>
+          <div className="bg-green-50 p-4 rounded-xl border-2 border-green-200 text-center">
+            <Link
+              href="https://chat.whatsapp.com/IQtWQjP9HnG0PHgkPCiIVW?s=cl&p=i&ilr=4"
+              target="_blank"
+              className="text-sm text-green-800 font-semibold hover:text-green-900 transition-colors inline-flex items-center gap-2"
+            >
+              📢 Başvurunuz sonuçlanana kadar WhatsApp duyuru kanalından bizi takip edin
+            </Link>
+          </div>
           
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full px-10 py-4 text-base font-black bg-[rgb(229,32,52)] text-white rounded-[10px] cursor-pointer transition-opacity duration-300 hover:opacity-80 border-none disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full px-10 py-5 text-lg font-black bg-gradient-to-r from-[rgb(229,32,52)] to-[rgb(200,25,45)] text-white rounded-xl cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] border-none disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 shadow-lg"
           >
-            {isSubmitting ? "Gönderiliyor..." : "Gönder"}
+            {isSubmitting ? "📤 Gönderiliyor..." : "🚀 Başvurumu Gönder"}
           </button>
           
           {submitStatus === "success" && (
-            <div className="p-4 bg-green-50 border border-green-200 rounded-[5px] text-center">
-              <p className="text-sm text-green-800 font-semibold">
-                ✓ Başvurunuz başarıyla gönderildi! En kısa sürede size dönüş yapacağız.
+            <div className="p-6 bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-300 rounded-2xl text-center shadow-lg">
+              <div className="text-4xl mb-3">✅</div>
+              <p className="text-base text-green-800 font-bold mb-1">
+                Başvurunuz Başarıyla Gönderildi!
+              </p>
+              <p className="text-sm text-green-700">
+                En kısa sürede size dönüş yapacağız. Aramızda hoş geldin! 🎉
               </p>
             </div>
           )}
           
           {submitStatus === "error" && (
-            <div className="p-4 bg-red-50 border border-red-200 rounded-[5px] text-center">
-              <p className="text-sm text-red-800 font-semibold">
-                ✗ Bir hata oluştu. Lütfen daha sonra tekrar deneyin veya Instagram üzerinden bize ulaşın.
+            <div className="p-6 bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-300 rounded-2xl text-center shadow-lg">
+              <div className="text-4xl mb-3">⚠️</div>
+              <p className="text-base text-red-800 font-bold mb-1">
+                Bir Hata Oluştu
+              </p>
+              <p className="text-sm text-red-700">
+                Lütfen daha sonra tekrar deneyin veya Instagram üzerinden bize ulaşın.
               </p>
             </div>
           )}
