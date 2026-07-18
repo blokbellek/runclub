@@ -13,11 +13,56 @@ export default function ContactForm() {
     isActiveRunner: "",
     consent: false,
   });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Form başarıyla gönderildi! (Demo mode)");
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "4a4f882f-a743-4393-8c7e-c514f4de79e4",
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          instagram: formData.instagram,
+          isActiveRunner: formData.isActiveRunner === "yes" ? "Evet" : "Hayır",
+          subject: "Yeni Kulüp Başvurusu - Cappadocia Run Club",
+          from_name: "Cappadocia Run Club Website",
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus("success");
+        // Form'u sıfırla
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          instagram: "",
+          isActiveRunner: "",
+          consent: false,
+        });
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -143,10 +188,27 @@ export default function ContactForm() {
           
           <button
             type="submit"
-            className="w-full px-10 py-4 text-base font-black bg-[rgb(229,32,52)] text-white rounded-[10px] cursor-pointer transition-opacity duration-300 hover:opacity-80 border-none"
+            disabled={isSubmitting}
+            className="w-full px-10 py-4 text-base font-black bg-[rgb(229,32,52)] text-white rounded-[10px] cursor-pointer transition-opacity duration-300 hover:opacity-80 border-none disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Gönder
+            {isSubmitting ? "Gönderiliyor..." : "Gönder"}
           </button>
+          
+          {submitStatus === "success" && (
+            <div className="p-4 bg-green-50 border border-green-200 rounded-[5px] text-center">
+              <p className="text-sm text-green-800 font-semibold">
+                ✓ Başvurunuz başarıyla gönderildi! En kısa sürede size dönüş yapacağız.
+              </p>
+            </div>
+          )}
+          
+          {submitStatus === "error" && (
+            <div className="p-4 bg-red-50 border border-red-200 rounded-[5px] text-center">
+              <p className="text-sm text-red-800 font-semibold">
+                ✗ Bir hata oluştu. Lütfen daha sonra tekrar deneyin veya Instagram üzerinden bize ulaşın.
+              </p>
+            </div>
+          )}
         </form>
         
         <div className="mt-8 flex justify-center">
