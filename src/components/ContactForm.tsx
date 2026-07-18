@@ -16,6 +16,7 @@ export default function ContactForm() {
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [phoneWarning, setPhoneWarning] = useState(false);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -101,7 +102,15 @@ export default function ContactForm() {
               required
               value={formData.phone}
               onChange={(e) => {
-                const value = e.target.value.replace(/\D/g, '');
+                const input = e.target.value;
+                const hasLetters = /[^0-9]/.test(input);
+                
+                if (hasLetters) {
+                  setPhoneWarning(true);
+                  setTimeout(() => setPhoneWarning(false), 2500);
+                }
+                
+                const value = input.replace(/\D/g, '');
                 if (value.length <= 11) {
                   setFormData({...formData, phone: value});
                 }
@@ -110,11 +119,20 @@ export default function ContactForm() {
               inputMode="numeric"
               maxLength={11}
               title="Lütfen sadece rakam giriniz (10-11 haneli telefon numarası)"
-              className="w-full px-5 py-4 text-base border-2 border-[rgb(230,230,230)] rounded-xl bg-white text-black focus:border-[rgb(229,32,52)] focus:outline-none transition-all shadow-sm hover:border-[rgb(200,200,200)]"
+              className={`w-full px-5 py-4 text-base border-2 rounded-xl bg-white text-black focus:outline-none transition-all shadow-sm ${phoneWarning ? 'border-red-500 animate-pulse' : 'border-[rgb(230,230,230)] focus:border-[rgb(229,32,52)] hover:border-[rgb(200,200,200)]'}`}
             />
-            <p className="text-xs text-[rgb(120,120,120)] mt-2">
-              📱 Sadece rakam giriniz (Örn: 05XXXXXXXXX)
-            </p>
+            {phoneWarning && (
+              <div className="mt-2 p-3 bg-red-50 border-2 border-red-300 rounded-lg animate-fadeIn">
+                <p className="text-sm text-red-700 font-semibold flex items-center gap-2">
+                  ⚠️ Lütfen sadece rakam giriniz! Harfler kabul edilmez.
+                </p>
+              </div>
+            )}
+            {!phoneWarning && (
+              <p className="text-xs text-[rgb(120,120,120)] mt-2">
+                📱 Sadece rakam giriniz (Örn: 05XXXXXXXXX)
+              </p>
+            )}
           </div>
           
           <div>
