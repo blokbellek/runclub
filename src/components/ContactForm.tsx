@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useEffect } from "react";
 import Link from "next/link";
 import { InstagramIcon } from "./icons";
 
@@ -12,14 +12,57 @@ export default function ContactForm() {
     instagram: "",
     isActiveRunner: "",
     consent: false,
+    honeypot: "", // Bot koruması
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error" | "ratelimit">("idle");
   const [phoneWarning, setPhoneWarning] = useState(false);
+  const [cooldownTime, setCooldownTime] = useState<number>(0);
+
+  // Rate limiting kontrolü - sayfa yüklendiğinde
+  useEffect(() => {
+    const checkCooldown = () => {
+      const lastSubmission = localStorage.getItem('lastFormSubmission');
+      if (lastSubmission) {
+        const timePassed = Date.now() - parseInt(lastSubmission);
+        const cooldownDuration = 30 * 60 * 1000; // 30 dakika
+        
+        if (timePassed < cooldownDuration) {
+          const remainingTime = Math.ceil((cooldownDuration - timePassed) / 1000 / 60);
+          setCooldownTime(remainingTime);
+        }
+      }
+    };
+
+    checkCooldown();
+    const interval = setInterval(checkCooldown, 60000); // Her dakika kontrol et
+    return () => clearInterval(interval);
+  }, []);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    // Honeypot kontrolü - bot tespit
+    if (formData.honeypot) {
+      console.log("Bot detected");
+      return;
+    }
+
+    // Rate limiting kontrolü
+    const lastSubmission = localStorage.getItem('lastFormSubmission');
+    if (lastSubmission) {
+      const timePassed = Date.now() - parseInt(lastSubmission);
+      const cooldownDuration = 30 * 60 * 1000; // 30 dakika
+      
+      if (timePassed < cooldownDuration) {
+        const remainingMinutes = Math.ceil((cooldownDuration - timePassed) / 1000 / 60);
+        setCooldownTime(remainingMinutes);
+        setSubmitStatus("ratelimit");
+        return;
+      }
+    }
+
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
@@ -39,6 +82,7 @@ export default function ContactForm() {
           isActiveRunner: formData.isActiveRunner === "yes" ? "Evet" : "Hayır",
           subject: "Yeni Kulüp Başvurusu - Cappadocia Run Club",
           from_name: "Cappadocia Run Club Website",
+          botcheck: formData.honeypot, // Web3Forms honeypot
         }),
       });
 
@@ -46,6 +90,10 @@ export default function ContactForm() {
 
       if (result.success) {
         setSubmitStatus("success");
+        // Başarılı gönderim zamanını kaydet
+        localStorage.setItem('lastFormSubmission', Date.now().toString());
+        setCooldownTime(30);
+        
         // Form'u sıfırla
         setFormData({
           name: "",
@@ -54,6 +102,7 @@ export default function ContactForm() {
           instagram: "",
           isActiveRunner: "",
           consent: false,
+          honeypot: "",
         });
       } else {
         setSubmitStatus("error");
@@ -69,6 +118,15 @@ export default function ContactForm() {
   return (
     <section id="contact-form" className="scroll-mt-24">
       <div className="max-w-[700px] mx-auto bg-gradient-to-br from-white to-[rgb(252,252,252)] p-8 md:p-12 rounded-3xl shadow-xl border border-[rgb(230,230,230)]">
+        {/* Güvenlik bilgilendirmesi */}
+        {cooldownTime > 0 && (
+          <div className="mb-6 p-4 bg-blue-50 border-2 border-blue-200 rounded-xl">
+            <p className="text-sm text-blue-800">
+              🔒 <strong>Güvenlik:</strong> Spam koruması aktif. {cooldownTime} dakika sonra yeni başvuru yapabilirsiniz.
+            </p>
+          </div>
+        )}
+        
         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
           <div>
             <label className="block text-xs font-bold text-[rgb(81,81,81)] mb-2 tracking-wider">AD SOYAD *</label>
@@ -81,6 +139,17 @@ export default function ContactForm() {
               className="w-full px-5 py-4 text-base border-2 border-[rgb(230,230,230)] rounded-xl bg-white text-black focus:border-[rgb(229,32,52)] focus:outline-none transition-all shadow-sm hover:border-[rgb(200,200,200)]"
             />
           </div>
+
+          {/* Honeypot field - Bot koruması (görünmez) */}
+          <input
+            type="text"
+            name="botcheck"
+            value={formData.honeypot}
+            onChange={(e) => setFormData({...formData, honeypot: e.target.value})}
+            style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px' }}
+            tabIndex={-1}
+            autoComplete="off"
+          />
           
           <div>
             <label className="block text-xs font-bold text-[rgb(81,81,81)] mb-2 tracking-wider">E-POSTA *</label>
@@ -223,11 +292,24 @@ export default function ContactForm() {
           
           <button
             type="submit"
-            disabled={isSubmitting}
+            disabled={isSubmitting || cooldownTime > 0}
             className="w-full px-10 py-5 text-lg font-black bg-gradient-to-r from-[rgb(229,32,52)] to-[rgb(200,25,45)] text-white rounded-xl cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] border-none disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 shadow-lg"
           >
-            {isSubmitting ? "📤 Gönderiliyor..." : "🚀 Başvurumu Gönder"}
+            {isSubmitting ? "📤 Gönderiliyor..." : cooldownTime > 0 ? `⏱️ ${cooldownTime} dakika bekleyin` : "🚀 Başvurumu Gönder"}
           </button>
+          
+          {submitStatus === "ratelimit" && (
+            <div className="p-6 bg-gradient-to-r from-orange-50 to-yellow-50 border-2 border-orange-300 rounded-2xl text-center shadow-lg">
+              <div className="text-4xl mb-3">⏳</div>
+              <p className="text-base text-orange-800 font-bold mb-1">
+                Çok Fazla Başvuru!
+              </p>
+              <p className="text-sm text-orange-700">
+                Spam koruması nedeniyle <strong>{cooldownTime} dakika</strong> sonra tekrar deneyebilirsiniz.
+                <br />Her kullanıcı 30 dakikada bir başvuru yapabilir.
+              </p>
+            </div>
+          )}
           
           {submitStatus === "success" && (
             <div className="p-6 bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-300 rounded-2xl text-center shadow-lg">
