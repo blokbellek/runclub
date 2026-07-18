@@ -28,23 +28,23 @@ export default function NewHeroSection() {
           Tempon senin, yolculuk bizimle.
         </p>
         
-        <div className="flex gap-4 justify-center items-center text-sm text-[rgb(81,81,81)]">
+        <div className="flex gap-4 justify-center items-center text-sm">
           <a 
             href="https://www.instagram.com/cappadociarunclub?igsh=dWtseHcwZ212YmRq" 
             target="_blank"
-            className="hover:text-black transition-colors flex items-center gap-2"
+            className="flex items-center gap-2 text-[#E4405F] hover:opacity-70 transition-all duration-300 hover:scale-110"
           >
-            <InstagramIcon className="w-4 h-4" />
-            Instagram
+            <InstagramIcon className="w-6 h-6" />
+            <span className="font-medium">Instagram</span>
           </a>
-          <span>|</span>
+          <span className="text-[rgb(200,200,200)]">|</span>
           <a 
             href="https://chat.whatsapp.com/IQtWQjP9HnG0PHgkPCiIVW?s=cl&p=i&ilr=4" 
             target="_blank"
-            className="hover:text-black transition-colors flex items-center gap-2"
+            className="flex items-center gap-2 text-[#25D366] hover:opacity-70 transition-all duration-300 hover:scale-110"
           >
-            <WhatsAppIcon className="w-4 h-4" />
-            WhatsApp Kanalı
+            <WhatsAppIcon className="w-6 h-6" />
+            <span className="font-medium">WhatsApp Kanalı</span>
           </a>
         </div>
         

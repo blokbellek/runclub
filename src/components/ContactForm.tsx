@@ -215,10 +215,10 @@ export default function ContactForm() {
           <Link
             href="https://www.instagram.com/cappadociarunclub?igsh=dWtseHcwZ212YmRq"
             target="_blank"
-            className="w-10 h-10 flex items-center justify-center text-black hover:scale-110 transition-transform"
+            className="flex items-center justify-center text-[#E4405F] hover:opacity-70 hover:scale-110 transition-all duration-300"
             aria-label="Instagram'da takip edin"
           >
-            <InstagramIcon className="w-8 h-8" />
+            <InstagramIcon className="w-10 h-10" />
           </Link>
         </div>
       </div>
