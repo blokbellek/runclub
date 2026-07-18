@@ -7,14 +7,14 @@ export default function ExploreSection() {
       subtitle: "Kareler.",
       description: "Kapadokya'daki koşularımızdan ve kulüp anlarımızdan kareler.",
       cta: "GALERİ",
-      href: "#gallery"
+      href: "/galeri"
     },
     {
       title: "İLETİŞİM",
       subtitle: "Bize ulaşın.",
       description: "Kulüp hakkında bilgi almak ve aramıza katılmak için iletişime geçin.",
       cta: "İLETİŞİM",
-      href: "#contact-form"
+      href: "/bize-katilin"
     },
     {
       title: "KVKK",

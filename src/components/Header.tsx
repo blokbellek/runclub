@@ -14,13 +14,16 @@ export default function Header() {
           <Link href="/" className="text-[rgb(81,81,81)] hover:text-[rgb(229,32,52)] transition-all duration-300 ease-in-out text-base font-normal">
             Home
           </Link>
-          <Link href="/#about" className="text-[rgb(81,81,81)] hover:text-[rgb(229,32,52)] transition-all duration-300 ease-in-out text-base font-normal">
+          <Link href="/hakkimizda" className="text-[rgb(81,81,81)] hover:text-[rgb(229,32,52)] transition-all duration-300 ease-in-out text-base font-normal">
             Hakkımızda
           </Link>
-          <Link href="#gallery" className="text-[rgb(81,81,81)] hover:text-[rgb(229,32,52)] transition-all duration-300 ease-in-out text-base font-normal">
+          <Link href="/program" className="text-[rgb(81,81,81)] hover:text-[rgb(229,32,52)] transition-all duration-300 ease-in-out text-base font-normal">
+            Program
+          </Link>
+          <Link href="/galeri" className="text-[rgb(81,81,81)] hover:text-[rgb(229,32,52)] transition-all duration-300 ease-in-out text-base font-normal">
             Galeri
           </Link>
-          <Link href="#contact-form" className="text-[rgb(81,81,81)] hover:text-[rgb(229,32,52)] transition-all duration-300 ease-in-out text-base font-normal">
+          <Link href="/bize-katilin" className="text-[rgb(81,81,81)] hover:text-[rgb(229,32,52)] transition-all duration-300 ease-in-out text-base font-normal">
             Bize Katılın
           </Link>
         </nav>
