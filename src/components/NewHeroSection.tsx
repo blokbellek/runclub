@@ -61,7 +61,7 @@ export default function NewHeroSection() {
       {/* Scroll indicator */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
         <div className="text-xs text-[rgb(81,81,81)] tracking-wider">
-          01 / HAKKIMIZDA
+          01 / HİKAYEMİZ
         </div>
       </div>
     </section>
