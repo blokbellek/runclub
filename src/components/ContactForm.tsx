@@ -2,7 +2,7 @@
 
 import { useState, FormEvent, useEffect } from "react";
 import Link from "next/link";
-import { InstagramIcon } from "./icons";
+import { InstagramIcon, MailIcon } from "./icons";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -326,7 +326,7 @@ export default function ContactForm() {
           )}
         </form>
         
-        <div className="mt-8 flex justify-center">
+        <div className="mt-8 flex justify-center items-center gap-6">
           <Link
             href="https://www.instagram.com/cappadociarunclub?igsh=dWtseHcwZ212YmRq"
             target="_blank"
@@ -334,6 +334,13 @@ export default function ContactForm() {
             aria-label="Instagram'da takip edin"
           >
             <InstagramIcon className="w-10 h-10" />
+          </Link>
+          <Link
+            href="mailto:cappadociarunclub@gmail.com"
+            className="flex items-center justify-center text-[rgb(81,81,81)] hover:opacity-70 hover:scale-110 transition-all duration-300"
+            aria-label="E-posta gönderin"
+          >
+            <MailIcon className="w-10 h-10" />
           </Link>
         </div>
       </div>

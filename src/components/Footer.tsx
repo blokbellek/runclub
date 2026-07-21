@@ -6,6 +6,11 @@ export default function Footer() {
       <p className="text-sm leading-[16.8px] text-[rgb(81,81,81)] m-0">
         Copyright © {currentYear} Cappadocia Run Club | Powered by Savaş
       </p>
+      <p className="text-sm leading-[16.8px] text-[rgb(81,81,81)] mt-2">
+        <a href="mailto:cappadociarunclub@gmail.com" className="hover:text-[rgb(229,32,52)] hover:underline">
+          cappadociarunclub@gmail.com
+        </a>
+      </p>
     </footer>
   );
 }

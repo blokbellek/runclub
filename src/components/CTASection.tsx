@@ -16,14 +16,14 @@ export default function CTASection() {
         </h2>
         
         <p className="text-lg text-[rgb(81,81,81)] leading-relaxed mb-8 max-w-2xl mx-auto">
-          Üyelik tamamen ücretsiz ve taahhütsüz. Birkaç kısa adımda seni tanıyalım — 
+          Birkaç kısa adımda seni tanıyalım — 
           gerisini birlikte koşarken hallederiz.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
           <div className="flex items-center gap-2">
             <span className="text-2xl">→</span>
-            <span className="text-sm text-[rgb(81,81,81)]">Tüm seviyelere açık, ücretsiz</span>
+            <span className="text-sm text-[rgb(81,81,81)]">Tüm seviyelere açık</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="text-2xl">→</span>

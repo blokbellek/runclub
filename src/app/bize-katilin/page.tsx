@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { InstagramIcon } from "@/components/icons";
+import { InstagramIcon, MailIcon } from "@/components/icons";
 
 export const metadata = {
   title: "Bize Katılın - Cappadocia Run Club",
@@ -22,10 +22,6 @@ export default function BizeKatilinPage() {
           </div>
           
           <div className="relative z-10 max-w-4xl mx-auto text-center">
-            <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-xs tracking-wider mb-6">
-              ÜCRETSİZ ÜYELİK • TAAHHÜTSÜZ
-            </div>
-            
             <h1 
               className="text-[60px] md:text-[90px] leading-[1.1] font-bold mb-6"
               style={{ fontFamily: "Cambria, Georgia, 'Times New Roman', Times, serif" }}
@@ -47,17 +43,20 @@ export default function BizeKatilinPage() {
                 <InstagramIcon className="w-5 h-5" />
                 <span className="font-medium">Instagram</span>
               </a>
+              <a 
+                href="mailto:cappadociarunclub@gmail.com" 
+                className="flex items-center gap-2 text-white hover:scale-110 transition-all duration-300 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full"
+              >
+                <MailIcon className="w-5 h-5" />
+                <span className="font-medium">cappadociarunclub@gmail.com</span>
+              </a>
             </div>
           </div>
         </section>
 
         {/* Stats Section */}
         <section className="py-20 px-8 bg-white border-y border-[rgb(230,230,230)]">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-5xl font-bold text-[rgb(229,32,52)] mb-2">100%</div>
-              <div className="text-sm text-[rgb(81,81,81)] uppercase tracking-wider">Ücretsiz</div>
-            </div>
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 text-center">
             <div>
               <div className="text-5xl font-bold text-[rgb(229,32,52)] mb-2">2x</div>
               <div className="text-sm text-[rgb(81,81,81)] uppercase tracking-wider">Haftalık Koşu</div>
@@ -65,10 +64,6 @@ export default function BizeKatilinPage() {
             <div>
               <div className="text-5xl font-bold text-[rgb(229,32,52)] mb-2">∞</div>
               <div className="text-sm text-[rgb(81,81,81)] uppercase tracking-wider">Her Seviye</div>
-            </div>
-            <div>
-              <div className="text-5xl font-bold text-[rgb(229,32,52)] mb-2">0</div>
-              <div className="text-sm text-[rgb(81,81,81)] uppercase tracking-wider">Taahhüt</div>
             </div>
           </div>
         </section>
@@ -128,14 +123,6 @@ export default function BizeKatilinPage() {
                   Sosyal aktiviteler, özel koşular ve unutulmaz anlar seni bekliyor.
                 </p>
               </div>
-              
-              <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-shadow">
-                <div className="text-4xl mb-4">💯</div>
-                <h3 className="text-xl font-bold text-black mb-3">Tamamen Ücretsiz</h3>
-                <p className="text-[rgb(81,81,81)] leading-relaxed">
-                  Hiçbir ücret yok, hiçbir taahhüt yok. Sadece koşmanın keyfini sürdür.
-                </p>
-              </div>
             </div>
           </div>
         </section>
@@ -173,7 +160,7 @@ export default function BizeKatilinPage() {
               Hala Tereddüt mü<br />Ediyorsun?
             </h2>
             <p className="text-xl leading-relaxed mb-8 max-w-2xl mx-auto opacity-90">
-              Instagram'dan bize ulaş, sorularını sor. 
+              Instagram'dan veya e-posta ile bize ulaş, sorularını sor. 
               Karar vermek için acele etmene gerek yok!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -184,6 +171,13 @@ export default function BizeKatilinPage() {
               >
                 <InstagramIcon className="w-5 h-5" />
                 Instagram'dan Sor
+              </a>
+              <a 
+                href="mailto:cappadociarunclub@gmail.com"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-black text-white font-bold rounded-lg hover:bg-[rgb(40,40,40)] transition-all hover:scale-105"
+              >
+                <MailIcon className="w-5 h-5" />
+                cappadociarunclub@gmail.com
               </a>
             </div>
           </div>

@@ -3,7 +3,7 @@ export default function FeaturesSection() {
     {
       number: "01",
       title: "Haftada İki Koşu",
-      description: "Koşularımız herkese açık ve tamamen ücretsiz. Hafta içi akşam serinliğinde, hafta sonu güneşle birlikte buluşuyoruz. Profesyonel bir atlet olmana, hatta daha önce hiç koşmuş olmana bile gerek yok — tek ihtiyacın bir çift ayakkabı ve orada olma isteği."
+      description: "Koşularımız herkese açık. Hafta içi akşam serinliğinde, hafta sonu güneşle birlikte buluşuyoruz. Profesyonel bir atlet olmana, hatta daha önce hiç koşmuş olmana bile gerek yok — tek ihtiyacın bir çift ayakkabı ve orada olma isteği."
     },
     {
       number: "02",

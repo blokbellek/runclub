@@ -1,4 +1,4 @@
-import { InstagramIcon } from "./icons";
+import { InstagramIcon, MailIcon } from "./icons";
 
 export default function NewHeroSection() {
   return (
@@ -36,6 +36,14 @@ export default function NewHeroSection() {
           >
             <InstagramIcon className="w-6 h-6" />
             <span className="font-medium">Instagram</span>
+          </a>
+          <span className="text-[rgb(200,200,200)]">|</span>
+          <a 
+            href="mailto:cappadociarunclub@gmail.com" 
+            className="flex items-center gap-2 text-[rgb(81,81,81)] hover:opacity-70 transition-all duration-300 hover:scale-110"
+          >
+            <MailIcon className="w-6 h-6" />
+            <span className="font-medium">cappadociarunclub@gmail.com</span>
           </a>
         </div>
         

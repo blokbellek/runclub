@@ -46,10 +46,10 @@ export default function ContactSection() {
               E-POSTA
             </div>
             <a 
-              href="mailto:info@cappadociarunclub.com"
+              href="mailto:cappadociarunclub@gmail.com"
               className="text-lg text-[rgb(229,32,52)] hover:underline"
             >
-              info@cappadociarunclub.com
+              cappadociarunclub@gmail.com
             </a>
           </div>
         </div>
