@@ -74,7 +74,7 @@ export default function ContactForm() {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: "4a4f882f-a743-4393-8c7e-c514f4de79e4",
+          access_key: "462801f7-1969-4760-aeec-de32911799ab",
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
@@ -279,16 +279,6 @@ export default function ContactForm() {
               &apos;ni okudum, kabul ediyorum.
             </span>
           </label>
-          
-          <div className="bg-green-50 p-4 rounded-xl border-2 border-green-200 text-center">
-            <Link
-              href="https://chat.whatsapp.com/IQtWQjP9HnG0PHgkPCiIVW?s=cl&p=i&ilr=4"
-              target="_blank"
-              className="text-sm text-green-800 font-semibold hover:text-green-900 transition-colors inline-flex items-center gap-2"
-            >
-              📢 Başvurunuz sonuçlanana kadar WhatsApp duyuru kanalından bizi takip edin
-            </Link>
-          </div>
           
           <button
             type="submit"

@@ -1,4 +1,4 @@
-import { InstagramIcon, WhatsAppIcon } from "./icons";
+import { InstagramIcon } from "./icons";
 
 export default function NewHeroSection() {
   return (
@@ -36,15 +36,6 @@ export default function NewHeroSection() {
           >
             <InstagramIcon className="w-6 h-6" />
             <span className="font-medium">Instagram</span>
-          </a>
-          <span className="text-[rgb(200,200,200)]">|</span>
-          <a 
-            href="https://chat.whatsapp.com/IQtWQjP9HnG0PHgkPCiIVW?s=cl&p=i&ilr=4" 
-            target="_blank"
-            className="flex items-center gap-2 text-[#25D366] hover:opacity-70 transition-all duration-300 hover:scale-110"
-          >
-            <WhatsAppIcon className="w-6 h-6" />
-            <span className="font-medium">WhatsApp Kanalı</span>
           </a>
         </div>
         

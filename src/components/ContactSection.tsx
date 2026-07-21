@@ -34,19 +34,6 @@ export default function ContactSection() {
           
           <div>
             <div className="text-xs font-bold tracking-wider text-[rgb(81,81,81)] mb-2">
-              WHATSAPP KANALI
-            </div>
-            <a 
-              href="https://chat.whatsapp.com/IQtWQjP9HnG0PHgkPCiIVW?s=cl&p=i&ilr=4"
-              target="_blank"
-              className="text-lg text-[rgb(229,32,52)] hover:underline"
-            >
-              Duyuru kanalımıza katıl
-            </a>
-          </div>
-          
-          <div>
-            <div className="text-xs font-bold tracking-wider text-[rgb(81,81,81)] mb-2">
               LOKASYON
             </div>
             <p className="text-lg text-black">

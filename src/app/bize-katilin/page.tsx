@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { InstagramIcon, WhatsAppIcon } from "@/components/icons";
+import { InstagramIcon } from "@/components/icons";
 
 export const metadata = {
   title: "Bize Katılın - Cappadocia Run Club",
@@ -46,14 +46,6 @@ export default function BizeKatilinPage() {
               >
                 <InstagramIcon className="w-5 h-5" />
                 <span className="font-medium">Instagram</span>
-              </a>
-              <a 
-                href="https://chat.whatsapp.com/IQtWQjP9HnG0PHgkPCiIVW?s=cl&p=i&ilr=4" 
-                target="_blank"
-                className="flex items-center gap-2 text-white hover:scale-110 transition-all duration-300 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full"
-              >
-                <WhatsAppIcon className="w-5 h-5" />
-                <span className="font-medium">WhatsApp</span>
               </a>
             </div>
           </div>
@@ -181,7 +173,7 @@ export default function BizeKatilinPage() {
               Hala Tereddüt mü<br />Ediyorsun?
             </h2>
             <p className="text-xl leading-relaxed mb-8 max-w-2xl mx-auto opacity-90">
-              Instagram'dan bize ulaş, sorularını sor. Veya WhatsApp grubuna katıl, topluluğu tanı. 
+              Instagram'dan bize ulaş, sorularını sor. 
               Karar vermek için acele etmene gerek yok!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -192,14 +184,6 @@ export default function BizeKatilinPage() {
               >
                 <InstagramIcon className="w-5 h-5" />
                 Instagram'dan Sor
-              </a>
-              <a 
-                href="https://chat.whatsapp.com/IQtWQjP9HnG0PHgkPCiIVW?s=cl&p=i&ilr=4"
-                target="_blank"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#25D366] text-white font-bold rounded-lg hover:bg-[#20bd5a] transition-all hover:scale-105"
-              >
-                <WhatsAppIcon className="w-5 h-5" />
-                WhatsApp Grubuna Katıl
               </a>
             </div>
           </div>
