@@ -123,6 +123,14 @@ export default function BizeKatilinPage() {
                   Sosyal aktiviteler, özel koşular ve unutulmaz anlar seni bekliyor.
                 </p>
               </div>
+              
+              <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-shadow">
+                <div className="text-4xl mb-4">🚀</div>
+                <h3 className="text-xl font-bold text-black mb-3">Kapadokya'nın İlki</h3>
+                <p className="text-[rgb(81,81,81)] leading-relaxed">
+                  Kapadokya'nın ilk koşu kulübü olarak başladık ve bu topluluğu birlikte büyütüyoruz.
+                </p>
+              </div>
             </div>
           </div>
         </section>

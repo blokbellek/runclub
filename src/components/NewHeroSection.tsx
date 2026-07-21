@@ -2,7 +2,7 @@ import { InstagramIcon, MailIcon } from "./icons";
 
 export default function NewHeroSection() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center px-8 py-20 bg-white">
+    <section className="relative min-h-[90vh] flex items-center justify-center px-4 sm:px-8 py-20 bg-white overflow-hidden">
       {/* Animated text marquee at the top */}
       <div className="absolute top-10 left-0 w-full overflow-hidden">
         <div className="animate-marquee whitespace-nowrap text-sm tracking-wider text-[rgb(81,81,81)]">
@@ -17,18 +17,18 @@ export default function NewHeroSection() {
         </div>
         
         <h1 
-          className="text-[80px] md:text-[120px] leading-[0.9] font-bold text-black mb-8"
+          className="text-[42px] sm:text-[64px] md:text-[90px] lg:text-[120px] leading-[0.95] lg:leading-[0.9] font-bold text-black mb-8"
           style={{ fontFamily: "Cambria, Georgia, 'Times New Roman', Times, serif" }}
         >
           İYİ Kİ<br />CAPPADOCIA
         </h1>
         
-        <p className="text-xl md:text-2xl text-[rgb(81,81,81)] mb-12 max-w-3xl mx-auto leading-relaxed">
-          Kapadokya'nın eşsiz manzarası eşliğinde her pazar buluşan koşu kulübü. 
+        <p className="text-base sm:text-xl md:text-2xl text-[rgb(81,81,81)] mb-12 max-w-3xl mx-auto leading-relaxed">
+          Kapadokya'nın eşsiz manzarası eşliğinde her pazar buluşan koşu topluluğu. 
           Tempon senin, yolculuk bizimle.
         </p>
         
-        <div className="flex gap-4 justify-center items-center text-sm">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-sm">
           <a 
             href="https://www.instagram.com/cappadociarunclub?igsh=dWtseHcwZ212YmRq" 
             target="_blank"
@@ -37,12 +37,12 @@ export default function NewHeroSection() {
             <InstagramIcon className="w-6 h-6" />
             <span className="font-medium">Instagram</span>
           </a>
-          <span className="text-[rgb(200,200,200)]">|</span>
+          <span className="hidden sm:inline text-[rgb(200,200,200)]">|</span>
           <a 
             href="mailto:cappadociarunclub@gmail.com" 
-            className="flex items-center gap-2 text-[rgb(81,81,81)] hover:opacity-70 transition-all duration-300 hover:scale-110"
+            className="flex items-center gap-2 text-[rgb(81,81,81)] hover:opacity-70 transition-all duration-300 hover:scale-110 break-all"
           >
-            <MailIcon className="w-6 h-6" />
+            <MailIcon className="w-6 h-6 shrink-0" />
             <span className="font-medium">cappadociarunclub@gmail.com</span>
           </a>
         </div>

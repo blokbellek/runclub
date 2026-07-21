@@ -36,7 +36,7 @@ export default function ExploreSection() {
           className="text-[50px] md:text-[70px] leading-[1.1] font-bold text-black mb-16"
           style={{ fontFamily: "Cambria, Georgia, 'Times New Roman', Times, serif" }}
         >
-          Kulübü gez.
+          Topluluğa gözat.
         </h2>
         
         <div className="grid md:grid-cols-3 gap-8">
