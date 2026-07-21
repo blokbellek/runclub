@@ -6,7 +6,7 @@ export default function NewHeroSection() {
       {/* Animated text marquee at the top */}
       <div className="absolute top-10 left-0 w-full overflow-hidden">
         <div className="animate-marquee whitespace-nowrap text-sm tracking-wider text-[rgb(81,81,81)]">
-          <span>★ İYİ Kİ CAPPADOCIA ★ BE HAPPY ★ KAPADOKYA'NIN KALBINDE ★ HAFTANIN İKİ GÜNÜ ★ İYİ Kİ CAPPADOCIA ★ BE HAPPY ★ KAPADOKYA'NIN KALBINDE ★ HAFTANIN İKİ GÜNÜ ★</span>
+          <span>★ İYİ Kİ CAPPADOCIA ★ BE HAPPY ★ KAPADOKYA'NIN KALBINDE ★ HER PAZAR ★ İYİ Kİ CAPPADOCIA ★ BE HAPPY ★ KAPADOKYA'NIN KALBINDE ★ HER PAZAR ★</span>
         </div>
       </div>
       
@@ -24,7 +24,7 @@ export default function NewHeroSection() {
         </h1>
         
         <p className="text-xl md:text-2xl text-[rgb(81,81,81)] mb-12 max-w-3xl mx-auto leading-relaxed">
-          Kapadokya'nın eşsiz manzarası eşliğinde haftanın iki günü buluşan koşu kulübü. 
+          Kapadokya'nın eşsiz manzarası eşliğinde her pazar buluşan koşu kulübü. 
           Tempon senin, yolculuk bizimle.
         </p>
         

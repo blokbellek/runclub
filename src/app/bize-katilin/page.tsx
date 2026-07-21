@@ -30,7 +30,7 @@ export default function BizeKatilinPage() {
             </h1>
             
             <p className="text-xl md:text-2xl leading-relaxed mb-12 max-w-2xl mx-auto opacity-95">
-              Kapadokya'nın büyüleyici manzarasında, haftanın iki günü birlikte koşmanın keyfini çıkar. 
+              Kapadokya'nın büyüleyici manzarasında, her pazar birlikte koşmanın keyfini çıkar. 
               Her seviyeden koşucu aramızda!
             </p>
             
@@ -58,7 +58,7 @@ export default function BizeKatilinPage() {
         <section className="py-20 px-8 bg-white border-y border-[rgb(230,230,230)]">
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 text-center">
             <div>
-              <div className="text-5xl font-bold text-[rgb(229,32,52)] mb-2">2x</div>
+              <div className="text-5xl font-bold text-[rgb(229,32,52)] mb-2">1x</div>
               <div className="text-sm text-[rgb(81,81,81)] uppercase tracking-wider">Haftalık Koşu</div>
             </div>
             <div>
@@ -112,7 +112,7 @@ export default function BizeKatilinPage() {
                 <div className="text-4xl mb-4">🎯</div>
                 <h3 className="text-xl font-bold text-black mb-3">Esneklik</h3>
                 <p className="text-[rgb(81,81,81)] leading-relaxed">
-                  Haftada iki gün, istediğin tempo. Yeni başlayan da deneyimli de memnun.
+                  Haftada bir, pazar günleri. Yeni başlayan da deneyimli de memnun.
                 </p>
               </div>
               

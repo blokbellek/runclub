@@ -27,7 +27,7 @@ export default function CTASection() {
           </div>
           <div className="flex items-center gap-2">
             <span className="text-2xl">→</span>
-            <span className="text-sm text-[rgb(81,81,81)]">Haftanın iki günü koşu</span>
+            <span className="text-sm text-[rgb(81,81,81)]">Her pazar bir koşu</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="text-2xl">→</span>

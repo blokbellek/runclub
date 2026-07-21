@@ -28,6 +28,45 @@ export default function AboutSection() {
             en güzel bahanesi.
           </p>
         </div>
+
+        <div className="grid md:grid-cols-2 gap-8 mt-16">
+          <div className="bg-[rgb(250,250,250)] p-8 rounded-2xl">
+            <h3 
+              className="text-2xl font-bold text-[rgb(229,32,52)] mb-4"
+              style={{ fontFamily: "Cambria, Georgia, 'Times New Roman', Times, serif" }}
+            >
+              Vizyonumuz
+            </h3>
+            <p className="text-lg text-[rgb(81,81,81)] leading-relaxed mb-4">
+              Sadece bir koşu kulübü olmak değil;
+            </p>
+            <ul className="list-disc list-inside text-lg text-[rgb(81,81,81)] leading-relaxed space-y-1 mb-4">
+              <li>Trekking</li>
+              <li>Yoga</li>
+              <li>Pilates</li>
+              <li>Yüzme</li>
+              <li>Outdoor etkinlikleri</li>
+            </ul>
+            <p className="text-lg text-[rgb(81,81,81)] leading-relaxed">
+              ve gelecekte farklı spor deneyimlerini aynı çatı altında buluşturan bir 
+              topluluk olmak.
+            </p>
+          </div>
+
+          <div className="bg-[rgb(250,250,250)] p-8 rounded-2xl">
+            <h3 
+              className="text-2xl font-bold text-[rgb(229,32,52)] mb-4"
+              style={{ fontFamily: "Cambria, Georgia, 'Times New Roman', Times, serif" }}
+            >
+              Misyonumuz
+            </h3>
+            <ul className="list-disc list-inside text-lg text-[rgb(81,81,81)] leading-relaxed space-y-2">
+              <li>İnsanları hareket etmeye teşvik etmek.</li>
+              <li>Her seviyeden insanı sporda buluşturmak.</li>
+              <li>Kapadokya'nın doğal güzelliklerini sporla keşfetmek.</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   );
