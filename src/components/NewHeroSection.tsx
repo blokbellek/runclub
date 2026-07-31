@@ -3,8 +3,20 @@ import { InstagramIcon, MailIcon } from "./icons";
 export default function NewHeroSection() {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center px-4 sm:px-8 py-20 bg-white overflow-hidden">
+      {/* Background image with blur effect */}
+      <div 
+        className="absolute inset-0 opacity-30"
+        style={{
+          backgroundImage: 'url(/images/hero-background.jpg)',
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          filter: 'blur(8px)',
+          transform: 'scale(1.1)' // Prevents blur edge artifacts
+        }}
+      />
+      
       {/* Animated text marquee at the top */}
-      <div className="absolute top-10 left-0 w-full overflow-hidden">
+      <div className="absolute top-10 left-0 w-full overflow-hidden z-10">
         <div className="animate-marquee whitespace-nowrap text-sm tracking-wider text-[rgb(81,81,81)]">
           <span>★ İYİ Kİ CAPPADOCIA ★ BE HAPPY ★ KAPADOKYA'NIN KALBINDE ★ HER PAZAR ★ İYİ Kİ CAPPADOCIA ★ BE HAPPY ★ KAPADOKYA'NIN KALBINDE ★ HER PAZAR ★</span>
         </div>
@@ -59,7 +71,7 @@ export default function NewHeroSection() {
       </div>
       
       {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce z-10">
         <div className="text-xs text-[rgb(81,81,81)] tracking-wider">
           01 / HİKAYEMİZ
         </div>
