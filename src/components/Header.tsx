@@ -10,12 +10,12 @@ export default function Header() {
   return (
     <header className="w-full px-4 py-5 sticky top-0 z-50 shadow-sm" style={{ backgroundColor: '#F5E6D3' }}>
       <div className="w-full flex items-center justify-between relative">
-        <Link href="/" className="text-xl font-bold hover:opacity-80 transition-opacity" style={{ color: '#8B4513' }}>
+        <Link href="/" className="text-xl font-bold hover:opacity-80 transition-opacity hidden md:block" style={{ color: '#8B4513' }}>
           CAPPADOCIA RUN CLUB
         </Link>
         
         {/* Centered logo */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:relative md:left-auto md:top-auto md:translate-x-0 md:translate-y-0">
           <img src="/images/header-logo.png" alt="Logo" className="h-12 w-auto object-contain" />
         </div>
         
