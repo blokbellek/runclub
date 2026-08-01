@@ -46,7 +46,7 @@ export default function ProgramsSection() {
                   />
                 </div>
                 <div className="p-4">
-                  <h3 className="text-[rgb(81,81,81)] font-semibold text-lg text-center">{activity.title}</h3>
+                  <h3 className="text-red-600 font-semibold text-lg text-center opacity-50">{activity.title}</h3>
                 </div>
               </div>
             ))}

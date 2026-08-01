@@ -59,21 +59,53 @@ export default function NewHeroSection() {
           </a>
         </div>
         
-        {/* Next run info */}
-        <div className="mt-16 pt-8 border-t border-[rgb(200,200,200)] max-w-md mx-auto">
-          <div className="text-xs tracking-wider text-[rgb(81,81,81)] mb-2">
-            BİR SONRAKİ KOŞU
-          </div>
-          <div className="text-base font-bold text-black">
-            Yakında duyurulacak
-          </div>
+        {/* Activity 3 image */}
+        <div className="mt-16 max-w-2xl mx-auto">
+          <img 
+            src="/images/activities/act3.jpeg" 
+            alt="Cappadocia Run Club Activity"
+            className="w-full h-auto rounded-2xl shadow-2xl object-cover"
+          />
         </div>
-      </div>
-      
-      {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce z-10">
-        <div className="text-xs text-[rgb(81,81,81)] tracking-wider">
-          01 / HİKAYEMİZ
+        
+        {/* Location Map */}
+        <div className="mt-8 max-w-xl mx-auto">
+          <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden border border-gray-200">
+            <div className="p-3 border-b border-gray-200">
+              <h3 className="text-base font-semibold text-black flex items-center gap-2">
+                <svg className="w-4 h-4 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                </svg>
+                Buluşma Noktası
+              </h3>
+              <p className="text-xs text-[rgb(81,81,81)] mt-1">Kapadokya - Rose Valley</p>
+            </div>
+            <div className="relative w-full h-[150px] md:h-[200px]">
+              <iframe
+                src="https://www.google.com/maps?q=38.651405334472656,34.836097717285156&z=17&hl=tr&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Buluşma Noktası - Rose Valley"
+              />
+            </div>
+            <div className="p-3 bg-gray-50">
+              <a 
+                href="https://www.google.com/maps?q=38.651405334472656,34.836097717285156&z=17&hl=tr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs font-medium text-red-600 hover:text-red-700 transition-colors"
+              >
+                <span>Yol tarifi al</span>
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
