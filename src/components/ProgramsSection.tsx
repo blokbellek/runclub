@@ -27,7 +27,7 @@ export default function ProgramsSection() {
           {activities.map((activity) => (
             <div 
               key={activity.id} 
-              className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group"
+              className="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group"
             >
               <div className="aspect-[4/3] overflow-hidden">
                 <img 
@@ -36,8 +36,8 @@ export default function ProgramsSection() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                <h3 className="text-white font-semibold text-lg">{activity.title}</h3>
+              <div className="p-4 bg-white">
+                <h3 className="text-[rgb(81,81,81)] font-semibold text-lg text-center">{activity.title}</h3>
               </div>
             </div>
           ))}
