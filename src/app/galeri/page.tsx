@@ -29,7 +29,7 @@ export default function GaleriPage() {
               GALERI
             </div>
             
-            <h1 className="text-[50px] md:text-[70px] leading-[1.1] font-bold text-black mb-12">
+            <h1 className="text-[40px] sm:text-[50px] md:text-[70px] leading-[1.1] font-bold text-black mb-12">
               Etkinliklerimizden<br />Kareler
             </h1>
             
