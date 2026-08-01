@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { InstagramIcon } from "@/components/icons";
 
 export const metadata = {
   title: "Galeri - Cappadocia Run Club",
@@ -44,9 +45,20 @@ export default function GaleriPage() {
               ))}
             </div>
             
-            <p className="text-center text-[rgb(81,81,81)] mt-12">
-              Daha fazla fotoğraf için Instagram hesabımızı ziyaret edin!
-            </p>
+            <div className="text-center mt-16">
+              <p className="text-[rgb(81,81,81)] mb-6 text-lg">
+                Daha fazla fotoğraf için Instagram hesabımızı ziyaret edin!
+              </p>
+              <a 
+                href="https://www.instagram.com/cappadociarunclub/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 text-white rounded-full font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"
+              >
+                <InstagramIcon className="w-6 h-6" />
+                @cappadociarunclub
+              </a>
+            </div>
           </div>
         </section>
       </main>
