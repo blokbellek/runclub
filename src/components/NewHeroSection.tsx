@@ -40,21 +40,22 @@ export default function NewHeroSection() {
           Tempon senin, yolculuk bizimle.
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-sm">
+        <div className="flex flex-col gap-4 justify-center items-center">
           <a 
             href="https://www.instagram.com/cappadociarunclub?igsh=dWtseHcwZ212YmRq" 
             target="_blank"
-            className="flex items-center gap-2 text-[#E4405F] hover:opacity-70 transition-all duration-300 hover:scale-110"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 text-white rounded-full font-semibold text-base hover:shadow-2xl hover:scale-105 transition-all duration-300"
           >
-            <InstagramIcon className="w-6 h-6" />
-            <span className="font-medium">Instagram</span>
+            <InstagramIcon className="w-5 h-5" />
+            @cappadociarunclub
           </a>
-          <span className="hidden sm:inline text-[rgb(200,200,200)]">|</span>
+          
           <a 
             href="mailto:cappadociarunclub@gmail.com" 
-            className="flex items-center gap-2 text-[rgb(81,81,81)] hover:opacity-70 transition-all duration-300 hover:scale-110 break-all"
+            className="flex items-center gap-2 text-[rgb(81,81,81)] hover:opacity-70 transition-all duration-300 hover:scale-105 break-all text-base"
           >
-            <MailIcon className="w-6 h-6 shrink-0" />
+            <MailIcon className="w-5 h-5 shrink-0" />
             <span className="font-medium">cappadociarunclub@gmail.com</span>
           </a>
         </div>
