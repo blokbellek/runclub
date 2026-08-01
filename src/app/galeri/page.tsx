@@ -7,6 +7,17 @@ export const metadata = {
 };
 
 export default function GaleriPage() {
+  const images = [
+    { id: 1, src: '/images/gallery/1.JPG', alt: 'Koşu etkinliği 1' },
+    { id: 2, src: '/images/gallery/2.JPG', alt: 'Koşu etkinliği 2' },
+    { id: 3, src: '/images/gallery/3.JPG', alt: 'Koşu etkinliği 3' },
+    { id: 4, src: '/images/gallery/4.JPG', alt: 'Koşu etkinliği 4' },
+    { id: 5, src: '/images/gallery/5.JPG', alt: 'Koşu etkinliği 5' },
+    { id: 6, src: '/images/gallery/6.JPG', alt: 'Koşu etkinliği 6' },
+    { id: 7, src: '/images/gallery/7.JPG', alt: 'Koşu etkinliği 7' },
+    { id: 8, src: '/images/gallery/8.JPG', alt: 'Koşu etkinliği 8' },
+  ];
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -22,29 +33,19 @@ export default function GaleriPage() {
             </h1>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Placeholder - Buraya galeri içeriği eklenecek */}
-              <div className="aspect-square bg-gray-100 rounded-lg flex items-center justify-center">
-                <p className="text-gray-400">Fotoğraf 1</p>
-              </div>
-              <div className="aspect-square bg-gray-100 rounded-lg flex items-center justify-center">
-                <p className="text-gray-400">Fotoğraf 2</p>
-              </div>
-              <div className="aspect-square bg-gray-100 rounded-lg flex items-center justify-center">
-                <p className="text-gray-400">Fotoğraf 3</p>
-              </div>
-              <div className="aspect-square bg-gray-100 rounded-lg flex items-center justify-center">
-                <p className="text-gray-400">Fotoğraf 4</p>
-              </div>
-              <div className="aspect-square bg-gray-100 rounded-lg flex items-center justify-center">
-                <p className="text-gray-400">Fotoğraf 5</p>
-              </div>
-              <div className="aspect-square bg-gray-100 rounded-lg flex items-center justify-center">
-                <p className="text-gray-400">Fotoğraf 6</p>
-              </div>
+              {images.map((image) => (
+                <div key={image.id} className="aspect-square overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <img 
+                    src={image.src} 
+                    alt={image.alt}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              ))}
             </div>
             
             <p className="text-center text-[rgb(81,81,81)] mt-12">
-              Yakında daha fazla fotoğraf eklenecek...
+              Daha fazla fotoğraf için Instagram hesabımızı ziyaret edin!
             </p>
           </div>
         </section>
