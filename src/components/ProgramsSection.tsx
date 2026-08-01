@@ -6,7 +6,7 @@ export default function ProgramsSection() {
   ];
 
   return (
-    <section id="program" className="py-16 px-8 bg-white">
+    <section id="program" className="py-16 px-8" style={{ backgroundColor: '#FAF8F3' }}>
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 
@@ -28,6 +28,7 @@ export default function ProgramsSection() {
             <div 
               key={activity.id} 
               className="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group"
+              style={{ backgroundColor: '#FFFBF7' }}
             >
               <div className="aspect-[4/3] overflow-hidden">
                 <img 
@@ -36,7 +37,7 @@ export default function ProgramsSection() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
-              <div className="p-4 bg-white">
+              <div className="p-4">
                 <h3 className="text-[rgb(81,81,81)] font-semibold text-lg text-center">{activity.title}</h3>
               </div>
             </div>
