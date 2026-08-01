@@ -1,8 +1,8 @@
 export default function ProgramsSection() {
   const activities = [
-    { id: 1, src: '/images/activities/act1.jpeg', title: 'Etkinlik 1' },
-    { id: 2, src: '/images/activities/act2.jpeg', title: 'Etkinlik 2' },
-    { id: 3, src: '/images/activities/act3.jpeg', title: 'Etkinlik 3' },
+    { id: 1, src: '/images/activities/act1.jpeg', title: 'Activity 1' },
+    { id: 2, src: '/images/activities/act2.jpeg', title: 'Activity 2' },
+    { id: 3, src: '/images/activities/act3.jpeg', title: 'Activity 3' },
   ];
 
   return (
