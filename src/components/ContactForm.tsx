@@ -2,7 +2,44 @@
 
 import { useState, FormEvent, useEffect } from "react";
 import Link from "next/link";
-import { InstagramIcon, MailIcon } from "./icons";
+import { ArrowRight, Check, CircleAlert, Clock, Loader2 } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+const COOLDOWN_MS = 3 * 60 * 1000;
+
+const field =
+  "w-full min-h-14 border border-ink bg-sheet px-4 text-base text-ink placeholder:text-ink-soft/70 transition-colors hover:bg-sheet-deep/40 focus:border-route focus:outline-none focus:ring-2 focus:ring-route/30";
+const labelCls = "map-label mb-2 block text-ink";
+
+function Notice({
+  tone,
+  icon: Icon,
+  title,
+  children,
+}: {
+  tone: "ok" | "warn" | "error";
+  icon: typeof Check;
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div
+      role={tone === "ok" ? "status" : "alert"}
+      className={cn(
+        "flex gap-4 border p-5",
+        tone === "ok" && "border-route bg-route text-sheet",
+        tone === "warn" && "border-ink bg-sheet-deep text-ink",
+        tone === "error" && "border-alert bg-sheet text-alert",
+      )}
+    >
+      <Icon aria-hidden className="mt-0.5 size-5 shrink-0" />
+      <div>
+        <p className="font-bold">{title}</p>
+        <p className="mt-1 text-sm">{children}</p>
+      </div>
+    </div>
+  );
+}
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -14,7 +51,7 @@ export default function ContactForm() {
     consent: false,
     honeypot: "", // Bot koruması
   });
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error" | "ratelimit">("idle");
   const [phoneWarning, setPhoneWarning] = useState(false);
@@ -23,44 +60,40 @@ export default function ContactForm() {
   // Rate limiting kontrolü - sayfa yüklendiğinde
   useEffect(() => {
     const checkCooldown = () => {
-      const lastSubmission = localStorage.getItem('lastFormSubmission');
-      if (lastSubmission) {
+      try {
+        const lastSubmission = localStorage.getItem("lastFormSubmission");
+        if (!lastSubmission) return;
         const timePassed = Date.now() - parseInt(lastSubmission);
-        const cooldownDuration = 3 * 60 * 1000; // 3 dakika
-        
-        if (timePassed < cooldownDuration) {
-          const remainingTime = Math.ceil((cooldownDuration - timePassed) / 1000 / 60);
-          setCooldownTime(remainingTime);
-        }
+        setCooldownTime(timePassed < COOLDOWN_MS ? Math.ceil((COOLDOWN_MS - timePassed) / 1000 / 60) : 0);
+      } catch {
+        // storage unavailable: no cooldown
       }
     };
 
     checkCooldown();
-    const interval = setInterval(checkCooldown, 60000); // Her dakika kontrol et
+    const interval = setInterval(checkCooldown, 60000);
     return () => clearInterval(interval);
   }, []);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     // Honeypot kontrolü - bot tespit
-    if (formData.honeypot) {
-      console.log("Bot detected");
-      return;
-    }
+    if (formData.honeypot) return;
 
     // Rate limiting kontrolü
-    const lastSubmission = localStorage.getItem('lastFormSubmission');
-    if (lastSubmission) {
-      const timePassed = Date.now() - parseInt(lastSubmission);
-      const cooldownDuration = 3 * 60 * 1000; // 3 dakika
-      
-      if (timePassed < cooldownDuration) {
-        const remainingMinutes = Math.ceil((cooldownDuration - timePassed) / 1000 / 60);
-        setCooldownTime(remainingMinutes);
-        setSubmitStatus("ratelimit");
-        return;
+    try {
+      const lastSubmission = localStorage.getItem("lastFormSubmission");
+      if (lastSubmission) {
+        const timePassed = Date.now() - parseInt(lastSubmission);
+        if (timePassed < COOLDOWN_MS) {
+          setCooldownTime(Math.ceil((COOLDOWN_MS - timePassed) / 1000 / 60));
+          setSubmitStatus("ratelimit");
+          return;
+        }
       }
+    } catch {
+      // storage unavailable: continue
     }
 
     setIsSubmitting(true);
@@ -82,7 +115,7 @@ export default function ContactForm() {
           isActiveRunner: formData.isActiveRunner === "yes" ? "Evet" : "Hayır",
           subject: "Yeni Kulüp Başvurusu - Cappadocia Run Club",
           from_name: "Cappadocia Run Club Website",
-          botcheck: formData.honeypot, // Web3Forms honeypot
+          botcheck: formData.honeypot,
         }),
       });
 
@@ -90,11 +123,12 @@ export default function ContactForm() {
 
       if (result.success) {
         setSubmitStatus("success");
-        // Başarılı gönderim zamanını kaydet
-        localStorage.setItem('lastFormSubmission', Date.now().toString());
+        try {
+          localStorage.setItem("lastFormSubmission", Date.now().toString());
+        } catch {
+          // ignore
+        }
         setCooldownTime(3);
-        
-        // Form'u sıfırla
         setFormData({
           name: "",
           email: "",
@@ -115,235 +149,207 @@ export default function ContactForm() {
     }
   };
 
-  return (
-    <section id="contact-form" className="scroll-mt-24">
-      <div className="max-w-[700px] mx-auto bg-gradient-to-br from-white to-[rgb(252,252,252)] p-8 md:p-12 rounded-3xl shadow-xl border border-[rgb(230,230,230)]">
-        {/* Güvenlik bilgilendirmesi */}
-        {cooldownTime > 0 && (
-          <div className="mb-6 p-4 bg-blue-50 border-2 border-blue-200 rounded-xl">
-            <p className="text-sm text-blue-800">
-              🔒 <strong>Güvenlik:</strong> Spam koruması aktif. {cooldownTime} dakika sonra yeni başvuru yapabilirsiniz.
-            </p>
-          </div>
-        )}
-        
-        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-          <div>
-            <label className="block text-xs font-bold text-[rgb(81,81,81)] mb-2 tracking-wider">AD SOYAD *</label>
-            <input
-              type="text"
-              placeholder="Adınızı giriniz"
-              required
-              value={formData.name}
-              onChange={(e) => setFormData({...formData, name: e.target.value})}
-              className="w-full px-5 py-4 text-base border-2 border-[rgb(230,230,230)] rounded-xl bg-white text-black focus:border-[rgb(229,32,52)] focus:outline-none transition-all shadow-sm hover:border-[rgb(200,200,200)]"
-            />
-          </div>
+  const disabled = isSubmitting || cooldownTime > 0;
 
-          {/* Honeypot field - Bot koruması (görünmez) */}
+  return (
+    <div id="contact-form" className="scroll-mt-24 border border-ink bg-sheet p-6 sm:p-10">
+      {cooldownTime > 0 && submitStatus !== "success" && submitStatus !== "ratelimit" && (
+        <div className="mb-8">
+          <Notice tone="warn" icon={Clock} title="Spam koruması aktif">
+            {cooldownTime} dakika sonra yeni başvuru yapabilirsin.
+          </Notice>
+        </div>
+      )}
+
+      <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+        <div>
+          <label htmlFor="cf-name" className={labelCls}>
+            Ad soyad
+          </label>
           <input
+            id="cf-name"
             type="text"
-            name="botcheck"
-            value={formData.honeypot}
-            onChange={(e) => setFormData({...formData, honeypot: e.target.value})}
-            style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px' }}
-            tabIndex={-1}
-            autoComplete="off"
+            autoComplete="name"
+            placeholder="Adın ve soyadın"
+            required
+            value={formData.name}
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            className={field}
           />
-          
+        </div>
+
+        {/* Honeypot field - Bot koruması (görünmez) */}
+        <input
+          type="text"
+          name="botcheck"
+          aria-hidden
+          value={formData.honeypot}
+          onChange={(e) => setFormData({ ...formData, honeypot: e.target.value })}
+          className="absolute -left-[9999px] size-px"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+
+        <div className="grid gap-6 sm:grid-cols-2">
           <div>
-            <label className="block text-xs font-bold text-[rgb(81,81,81)] mb-2 tracking-wider">E-POSTA *</label>
+            <label htmlFor="cf-email" className={labelCls}>
+              E-posta
+            </label>
             <input
+              id="cf-email"
               type="email"
+              autoComplete="email"
               placeholder="ornek@email.com"
               required
               value={formData.email}
-              onChange={(e) => setFormData({...formData, email: e.target.value})}
-              className="w-full px-5 py-4 text-base border-2 border-[rgb(230,230,230)] rounded-xl bg-white text-black focus:border-[rgb(229,32,52)] focus:outline-none transition-all shadow-sm hover:border-[rgb(200,200,200)]"
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              className={field}
             />
           </div>
-          
+
           <div>
-            <label className="block text-xs font-bold text-[rgb(81,81,81)] mb-2 tracking-wider">TELEFON *</label>
+            <label htmlFor="cf-phone" className={labelCls}>
+              Telefon
+            </label>
             <input
+              id="cf-phone"
               type="tel"
+              autoComplete="tel"
               placeholder="05XX XXX XX XX"
               required
               value={formData.phone}
               onChange={(e) => {
                 const input = e.target.value;
-                const hasLetters = /[^0-9]/.test(input);
-                
-                if (hasLetters) {
+                if (/[^0-9]/.test(input)) {
                   setPhoneWarning(true);
                   setTimeout(() => setPhoneWarning(false), 2500);
                 }
-                
-                const value = input.replace(/\D/g, '');
-                if (value.length <= 11) {
-                  setFormData({...formData, phone: value});
-                }
+                const value = input.replace(/\D/g, "");
+                if (value.length <= 11) setFormData({ ...formData, phone: value });
               }}
               pattern="[0-9]{10,11}"
               inputMode="numeric"
               maxLength={11}
-              title="Lütfen sadece rakam giriniz (10-11 haneli telefon numarası)"
-              className={`w-full px-5 py-4 text-base border-2 rounded-xl bg-white text-black focus:outline-none transition-all shadow-sm ${phoneWarning ? 'border-red-500 animate-pulse' : 'border-[rgb(230,230,230)] focus:border-[rgb(229,32,52)] hover:border-[rgb(200,200,200)]'}`}
+              aria-describedby="cf-phone-hint"
+              aria-invalid={phoneWarning || undefined}
+              title="Lütfen sadece rakam gir (10-11 haneli telefon numarası)"
+              className={cn(field, "tabular", phoneWarning && "border-alert focus:border-alert focus:ring-alert/30")}
             />
-            {phoneWarning && (
-              <div className="mt-2 p-3 bg-red-50 border-2 border-red-300 rounded-lg animate-fadeIn">
-                <p className="text-sm text-red-700 font-semibold flex items-center gap-2">
-                  ⚠️ Lütfen sadece rakam giriniz! Harfler kabul edilmez.
-                </p>
-              </div>
-            )}
-            {!phoneWarning && (
-              <p className="text-xs text-[rgb(120,120,120)] mt-2">
-                📱 Sadece rakam giriniz (Örn: 05XXXXXXXXX)
-              </p>
-            )}
-          </div>
-          
-          <div>
-            <label className="block text-xs font-bold text-[rgb(81,81,81)] mb-2 tracking-wider">INSTAGRAM *</label>
-            <input
-              type="text"
-              placeholder="@kullaniciadi"
-              required
-              value={formData.instagram}
-              onChange={(e) => setFormData({...formData, instagram: e.target.value})}
-              className="w-full px-5 py-4 text-base border-2 border-[rgb(230,230,230)] rounded-xl bg-white text-black focus:border-[rgb(229,32,52)] focus:outline-none transition-all shadow-sm hover:border-[rgb(200,200,200)]"
-            />
-          </div>
-          
-          <div className="bg-[rgb(250,250,250)] p-5 rounded-xl border-2 border-[rgb(240,240,240)]">
-            <p className="text-xs font-bold text-[rgb(81,81,81)] mb-3 tracking-wider">
-              AKTİF KOŞUCU MUSUNUZ? *
-            </p>
-            <div className="flex gap-4">
-              <label className="flex-1 flex items-center justify-center gap-2 px-4 py-3 text-base bg-white border-2 border-[rgb(230,230,230)] rounded-lg cursor-pointer hover:border-[rgb(229,32,52)] transition-all has-[:checked]:border-[rgb(229,32,52)] has-[:checked]:bg-[rgb(229,32,52)]/5">
-                <input
-                  type="radio"
-                  name="isActiveRunner"
-                  value="yes"
-                  required
-                  onChange={(e) => setFormData({...formData, isActiveRunner: e.target.value})}
-                  className="cursor-pointer w-4 h-4"
-                />
-                <span className="font-medium">Evet</span>
-              </label>
-              <label className="flex-1 flex items-center justify-center gap-2 px-4 py-3 text-base bg-white border-2 border-[rgb(230,230,230)] rounded-lg cursor-pointer hover:border-[rgb(229,32,52)] transition-all has-[:checked]:border-[rgb(229,32,52)] has-[:checked]:bg-[rgb(229,32,52)]/5">
-                <input
-                  type="radio"
-                  name="isActiveRunner"
-                  value="no"
-                  onChange={(e) => setFormData({...formData, isActiveRunner: e.target.value})}
-                  className="cursor-pointer w-4 h-4"
-                />
-                <span className="font-medium">Hayır</span>
-              </label>
-            </div>
-          </div>
-          
-          <div className="bg-blue-50 p-4 rounded-xl border-2 border-blue-200">
-            <p className="text-sm text-blue-900 leading-relaxed">
-              📸 Başvurunuzda sosyal medya üzerinden size ulaşabilmemiz için{" "}
-              <Link 
-                href="https://www.instagram.com/cappadociarunclub?igsh=dWtseHcwZ212YmRq" 
-                target="_blank"
-                className="text-[rgb(229,32,52)] font-bold underline hover:opacity-80"
-              >
-                @cappadociarunclub
-              </Link>
-              {" "}hesabını takip etmeniz gerekmektedir.
+            <p id="cf-phone-hint" className={cn("mt-2 text-xs", phoneWarning ? "font-semibold text-alert" : "text-ink-soft")}>
+              {phoneWarning ? "Yalnızca rakam girebilirsin; harfler silindi." : "Yalnızca rakam, örn. 05XXXXXXXXX"}
             </p>
           </div>
-          
-          <label className="flex items-start gap-3 p-4 bg-gray-50 rounded-xl border-2 border-gray-200 cursor-pointer hover:border-gray-300 transition-all">
-            <input
-              type="checkbox"
-              required
-              checked={formData.consent}
-              onChange={(e) => setFormData({...formData, consent: e.target.checked})}
-              className="mt-1 cursor-pointer w-5 h-5"
-            />
-            <span className="text-sm text-[rgb(60,60,60)] leading-relaxed">
-              Kişisel verilerimin işlenmesine yönelik paylaşılan{" "}
-              <Link 
-                href="/aydinlatma-metni" 
-                target="_blank"
-                className="text-[rgb(0,123,255)] font-semibold underline hover:opacity-80"
-              >
-                Aydınlatma Metni
-              </Link>
-              &apos;ni okudum, kabul ediyorum.
-            </span>
-          </label>
-          
-          <button
-            type="submit"
-            disabled={isSubmitting || cooldownTime > 0}
-            className="w-full px-10 py-5 text-lg font-black bg-gradient-to-r from-[rgb(229,32,52)] to-[rgb(200,25,45)] text-white rounded-xl cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] border-none disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 shadow-lg"
-          >
-            {isSubmitting ? "📤 Gönderiliyor..." : cooldownTime > 0 ? `⏱️ ${cooldownTime} dakika bekleyin` : "🚀 Başvurumu Gönder"}
-          </button>
-          
-          {submitStatus === "ratelimit" && (
-            <div className="p-6 bg-gradient-to-r from-orange-50 to-yellow-50 border-2 border-orange-300 rounded-2xl text-center shadow-lg">
-              <div className="text-4xl mb-3">⏳</div>
-              <p className="text-base text-orange-800 font-bold mb-1">
-                Çok Fazla Başvuru!
-              </p>
-              <p className="text-sm text-orange-700">
-                Spam koruması nedeniyle <strong>{cooldownTime} dakika</strong> sonra tekrar deneyebilirsiniz.
-                <br />Her kullanıcı 3 dakikada bir başvuru yapabilir.
-              </p>
-            </div>
-          )}
-          
-          {submitStatus === "success" && (
-            <div className="p-6 bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-300 rounded-2xl text-center shadow-lg">
-              <div className="text-4xl mb-3">✅</div>
-              <p className="text-base text-green-800 font-bold mb-1">
-                Başvurunuz Başarıyla Gönderildi!
-              </p>
-              <p className="text-sm text-green-700">
-                En kısa sürede size dönüş yapacağız. Aramızda hoş geldin! 🎉
-              </p>
-            </div>
-          )}
-          
-          {submitStatus === "error" && (
-            <div className="p-6 bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-300 rounded-2xl text-center shadow-lg">
-              <div className="text-4xl mb-3">⚠️</div>
-              <p className="text-base text-red-800 font-bold mb-1">
-                Bir Hata Oluştu
-              </p>
-              <p className="text-sm text-red-700">
-                Lütfen daha sonra tekrar deneyin veya Instagram üzerinden bize ulaşın.
-              </p>
-            </div>
-          )}
-        </form>
-        
-        <div className="mt-8 flex justify-center items-center gap-6">
-          <Link
-            href="https://www.instagram.com/cappadociarunclub?igsh=dWtseHcwZ212YmRq"
-            target="_blank"
-            className="flex items-center justify-center text-[#E4405F] hover:opacity-70 hover:scale-110 transition-all duration-300"
-            aria-label="Instagram'da takip edin"
-          >
-            <InstagramIcon className="w-10 h-10" />
-          </Link>
-          <Link
-            href="mailto:cappadociarunclub@gmail.com"
-            className="flex items-center justify-center text-[rgb(81,81,81)] hover:opacity-70 hover:scale-110 transition-all duration-300"
-            aria-label="E-posta gönderin"
-          >
-            <MailIcon className="w-10 h-10" />
-          </Link>
         </div>
-      </div>
-    </section>
+
+        <div>
+          <label htmlFor="cf-instagram" className={labelCls}>
+            Instagram kullanıcı adın
+          </label>
+          <input
+            id="cf-instagram"
+            type="text"
+            placeholder="@kullaniciadi"
+            required
+            value={formData.instagram}
+            onChange={(e) => setFormData({ ...formData, instagram: e.target.value })}
+            className={field}
+          />
+        </div>
+
+        <fieldset>
+          <legend className={labelCls}>Aktif koşucu musun?</legend>
+          <div className="grid grid-cols-2 border border-ink">
+            {[
+              { value: "yes", label: "Evet" },
+              { value: "no", label: "Hayır" },
+            ].map((opt, i) => (
+              <label
+                key={opt.value}
+                className={cn(
+                  "flex min-h-14 cursor-pointer items-center justify-center gap-2 px-3 text-center text-sm font-semibold transition-colors hover:bg-sheet-deep/50",
+                  "has-[:checked]:bg-ink has-[:checked]:text-sheet has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-route",
+                  i === 1 && "border-l border-ink",
+                )}
+              >
+                <input
+                  type="radio"
+                  name="isActiveRunner"
+                  value={opt.value}
+                  required={i === 0}
+                  checked={formData.isActiveRunner === opt.value}
+                  onChange={(e) => setFormData({ ...formData, isActiveRunner: e.target.value })}
+                  className="sr-only"
+                />
+                {opt.label}
+              </label>
+            ))}
+          </div>
+        </fieldset>
+
+        <p className="border-y border-ink/30 py-4 text-sm leading-relaxed text-ink-soft">
+          Sana sosyal medya üzerinden ulaşabilmemiz için{" "}
+          <a
+            href="https://www.instagram.com/cappadociarunclub/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-route underline"
+          >
+            @cappadociarunclub
+          </a>{" "}
+          hesabını takip etmen gerekiyor.
+        </p>
+
+        <label className="flex cursor-pointer items-start gap-3 text-sm leading-relaxed text-ink-soft">
+          <input
+            type="checkbox"
+            required
+            checked={formData.consent}
+            onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
+            className="mt-0.5 size-5 shrink-0 cursor-pointer accent-[var(--route)]"
+          />
+          <span>
+            Kişisel verilerimin işlenmesine yönelik{" "}
+            <Link href="/aydinlatma-metni" target="_blank" className="font-semibold text-route underline">
+              Aydınlatma Metni
+            </Link>
+            &apos;ni okudum, kabul ediyorum.
+          </span>
+        </label>
+
+        <button
+          type="submit"
+          disabled={disabled}
+          className="group flex min-h-14 w-full items-center justify-between gap-4 bg-route px-6 text-sm font-bold uppercase tracking-[0.06em] text-sheet transition-colors duration-300 [font-stretch:115%] hover:bg-route-deep disabled:cursor-not-allowed disabled:bg-ink-soft"
+        >
+          <span>
+            {isSubmitting ? "Gönderiliyor" : cooldownTime > 0 ? `${cooldownTime} dakika bekle` : "Başvurumu gönder"}
+          </span>
+          {isSubmitting ? (
+            <Loader2 aria-hidden className="size-4 animate-spin" />
+          ) : (
+            <ArrowRight aria-hidden className="size-4 transition-transform duration-300 ease-out-expo group-hover:translate-x-1" />
+          )}
+        </button>
+
+        {submitStatus === "ratelimit" && (
+          <Notice tone="warn" icon={Clock} title="Biraz bekle">
+            Spam koruması nedeniyle {cooldownTime} dakika sonra tekrar deneyebilirsin. Her kullanıcı 3 dakikada bir başvuru
+            yapabilir.
+          </Notice>
+        )}
+
+        {submitStatus === "success" && (
+          <Notice tone="ok" icon={Check} title="Başvurun bize ulaştı">
+            En kısa sürede sana dönüş yapacağız. Aramıza hoş geldin!
+          </Notice>
+        )}
+
+        {submitStatus === "error" && (
+          <Notice tone="error" icon={CircleAlert} title="Başvuru gönderilemedi">
+            Bağlantıda bir sorun oldu. Biraz sonra tekrar dene ya da Instagram&apos;dan bize yaz.
+          </Notice>
+        )}
+      </form>
+    </div>
   );
 }

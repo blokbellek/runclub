@@ -1,0 +1,417 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-01T14:44:30.295Z",
+  "title": "Design System: Cappadocia Run Club",
+  "extensions": {
+    "colorMeta": {
+      "sheet": {
+        "role": "neutral",
+        "displayName": "Tuff-Rose Sheet",
+        "canonical": "oklch(0.885 0.04 42)",
+        "tonalRamp": [
+          "oklch(0.15 0.04 42)",
+          "oklch(0.26 0.04 42)",
+          "oklch(0.37 0.04 42)",
+          "oklch(0.48 0.04 42)",
+          "oklch(0.59 0.04 42)",
+          "oklch(0.7 0.04 42)",
+          "oklch(0.82 0.04 42)",
+          "oklch(0.95 0.04 42)"
+        ]
+      },
+      "sheet-deep": {
+        "role": "neutral",
+        "displayName": "Deep Sheet",
+        "canonical": "oklch(0.83 0.055 40)",
+        "tonalRamp": [
+          "oklch(0.15 0.055 40)",
+          "oklch(0.26 0.055 40)",
+          "oklch(0.37 0.055 40)",
+          "oklch(0.48 0.055 40)",
+          "oklch(0.59 0.055 40)",
+          "oklch(0.7 0.055 40)",
+          "oklch(0.82 0.055 40)",
+          "oklch(0.95 0.055 40)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Umber Ink",
+        "canonical": "oklch(0.26 0.05 38)",
+        "tonalRamp": [
+          "oklch(0.15 0.05 38)",
+          "oklch(0.26 0.05 38)",
+          "oklch(0.37 0.05 38)",
+          "oklch(0.48 0.05 38)",
+          "oklch(0.59 0.05 38)",
+          "oklch(0.7 0.05 38)",
+          "oklch(0.82 0.05 38)",
+          "oklch(0.95 0.05 38)"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Umber",
+        "canonical": "oklch(0.41 0.06 38)",
+        "tonalRamp": [
+          "oklch(0.15 0.06 38)",
+          "oklch(0.26 0.06 38)",
+          "oklch(0.37 0.06 38)",
+          "oklch(0.48 0.06 38)",
+          "oklch(0.59 0.06 38)",
+          "oklch(0.7 0.06 38)",
+          "oklch(0.82 0.06 38)",
+          "oklch(0.95 0.06 38)"
+        ]
+      },
+      "contour": {
+        "role": "neutral",
+        "displayName": "Sienna Contour",
+        "canonical": "oklch(0.5 0.11 40)",
+        "tonalRamp": [
+          "oklch(0.15 0.11 40)",
+          "oklch(0.26 0.11 40)",
+          "oklch(0.37 0.11 40)",
+          "oklch(0.48 0.11 40)",
+          "oklch(0.59 0.11 40)",
+          "oklch(0.7 0.11 40)",
+          "oklch(0.82 0.11 40)",
+          "oklch(0.95 0.11 40)"
+        ]
+      },
+      "route": {
+        "role": "primary",
+        "displayName": "Route Ultramarine",
+        "canonical": "oklch(0.46 0.2 266)",
+        "tonalRamp": [
+          "oklch(0.15 0.2 266)",
+          "oklch(0.26 0.2 266)",
+          "oklch(0.37 0.2 266)",
+          "oklch(0.48 0.2 266)",
+          "oklch(0.59 0.2 266)",
+          "oklch(0.7 0.2 266)",
+          "oklch(0.82 0.2 266)",
+          "oklch(0.95 0.2 266)"
+        ]
+      },
+      "route-deep": {
+        "role": "primary",
+        "displayName": "Deep Route",
+        "canonical": "oklch(0.36 0.18 266)",
+        "tonalRamp": [
+          "oklch(0.15 0.18 266)",
+          "oklch(0.26 0.18 266)",
+          "oklch(0.37 0.18 266)",
+          "oklch(0.48 0.18 266)",
+          "oklch(0.59 0.18 266)",
+          "oklch(0.7 0.18 266)",
+          "oklch(0.82 0.18 266)",
+          "oklch(0.95 0.18 266)"
+        ]
+      },
+      "route-light": {
+        "role": "primary",
+        "displayName": "Night Route",
+        "canonical": "oklch(0.74 0.12 262)",
+        "tonalRamp": [
+          "oklch(0.15 0.12 262)",
+          "oklch(0.26 0.12 262)",
+          "oklch(0.37 0.12 262)",
+          "oklch(0.48 0.12 262)",
+          "oklch(0.59 0.12 262)",
+          "oklch(0.7 0.12 262)",
+          "oklch(0.82 0.12 262)",
+          "oklch(0.95 0.12 262)"
+        ]
+      },
+      "night": {
+        "role": "neutral",
+        "displayName": "Night Sheet",
+        "canonical": "oklch(0.22 0.035 35)",
+        "tonalRamp": [
+          "oklch(0.15 0.035 35)",
+          "oklch(0.26 0.035 35)",
+          "oklch(0.37 0.035 35)",
+          "oklch(0.48 0.035 35)",
+          "oklch(0.59 0.035 35)",
+          "oklch(0.7 0.035 35)",
+          "oklch(0.82 0.035 35)",
+          "oklch(0.95 0.035 35)"
+        ]
+      },
+      "night-ink": {
+        "role": "neutral",
+        "displayName": "Night Ink",
+        "canonical": "oklch(0.93 0.025 45)",
+        "tonalRamp": [
+          "oklch(0.15 0.025 45)",
+          "oklch(0.26 0.025 45)",
+          "oklch(0.37 0.025 45)",
+          "oklch(0.48 0.025 45)",
+          "oklch(0.59 0.025 45)",
+          "oklch(0.7 0.025 45)",
+          "oklch(0.82 0.025 45)",
+          "oklch(0.95 0.025 45)"
+        ]
+      },
+      "night-soft": {
+        "role": "neutral",
+        "displayName": "Night Soft",
+        "canonical": "oklch(0.8 0.04 45)",
+        "tonalRamp": [
+          "oklch(0.15 0.04 45)",
+          "oklch(0.26 0.04 45)",
+          "oklch(0.37 0.04 45)",
+          "oklch(0.48 0.04 45)",
+          "oklch(0.59 0.04 45)",
+          "oklch(0.7 0.04 45)",
+          "oklch(0.82 0.04 45)",
+          "oklch(0.95 0.04 45)"
+        ]
+      },
+      "alert": {
+        "role": "tertiary",
+        "displayName": "Survey Red",
+        "canonical": "oklch(0.48 0.17 28)",
+        "tonalRamp": [
+          "oklch(0.15 0.17 28)",
+          "oklch(0.26 0.17 28)",
+          "oklch(0.37 0.17 28)",
+          "oklch(0.48 0.17 28)",
+          "oklch(0.59 0.17 28)",
+          "oklch(0.7 0.17 28)",
+          "oklch(0.82 0.17 28)",
+          "oklch(0.95 0.17 28)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page and section titles in wide heavy caps. Hero clamp(2.75rem, 5vw, 5.5rem); page heads clamp(2.25rem, 6.4vw, 6rem); sections clamp(2.25rem, 4.4vw, 4rem). Width axis drops to 100% under 640px."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Item titles inside ruled lists."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Legend terms and small section heads."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Leads and reading copy, ink-soft, max 65ch."
+      },
+      "label": {
+        "displayName": "Map Label",
+        "purpose": "Sheet-collar lettering: coordinates, scale, sheet names, captions, form labels."
+      },
+      "action": {
+        "displayName": "Action",
+        "purpose": "Button and navigation text."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The one easing curve for state transitions and the authored route draw."
+      },
+      {
+        "name": "route-draw",
+        "value": "stroke-dashoffset 1 to 0, 2.4s ease-out-expo, 0.35s delay, fill-mode backwards",
+        "purpose": "Hero route draws itself once, only under prefers-reduced-motion: no-preference. Drawn is the default state."
+      },
+      {
+        "name": "pin-drop",
+        "value": "from opacity 0, translateY(-6px) scale(0.9); 0.6s ease-out-expo, 2.1s delay, fill-mode backwards",
+        "purpose": "Meeting pin lands as the route arrives; reduced motion shows it in place."
+      },
+      {
+        "name": "state",
+        "value": "300ms ease-out-expo",
+        "purpose": "Button ground and gap, arrow slide. Photo tiles zoom to 1.03 over 700ms."
+      },
+      {
+        "name": "fadeIn",
+        "value": "from opacity 0, translateY(-6px); 0.3s ease-out-expo",
+        "purpose": "Mobile menu panel entrance."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
+    ],
+    "contours": {
+      "generator": "scripts/generate-contours.mjs",
+      "seed": 1931,
+      "outputs": [
+        "public/images/topo/sheet.svg",
+        "public/images/topo/quiet.svg",
+        "public/images/topo/night.svg"
+      ],
+      "strokes": {
+        "minor": "0.8px",
+        "index": "1.6px, every fifth contour"
+      },
+      "inks": {
+        "sheet": {
+          "minor": "#a0573a @ 0.26",
+          "index": "#7d3a22 @ 0.48"
+        },
+        "quiet": {
+          "minor": "#a0573a @ 0.12",
+          "index": "#7d3a22 @ 0.24"
+        },
+        "night": {
+          "minor": "#e9b7a2 @ 0.14",
+          "index": "#f3cdbd @ 0.28"
+        }
+      }
+    }
+  },
+  "components": [
+    {
+      "name": "Route Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single primary action: ultramarine slab, label left, arrow right; the gap widens on hover.",
+      "html": "<a class=\"ds-btn-route\" href=\"#\"><span>Pazar koşusuna katıl</span><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a>",
+      "css": ".ds-btn-route { display: inline-flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 56px; padding: 0 24px; background: var(--route, oklch(0.46 0.2 266)); color: var(--sheet, oklch(0.885 0.04 42)); text-decoration: none; border-radius: 0; font-family: var(--font-archivo), Archivo, ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.06em; text-transform: uppercase; font-stretch: 115%; transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), gap 0.3s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-route:hover { background: var(--route-deep, oklch(0.36 0.18 266)); gap: 32px; } .ds-btn-route:active { transform: translateY(1px); } .ds-btn-route:focus-visible { outline: 2px solid var(--route, oklch(0.46 0.2 266)); outline-offset: 3px; }"
+    },
+    {
+      "name": "Route Button (night)",
+      "kind": "button",
+      "refersTo": "button-night",
+      "description": "Primary action on a dark umber night band.",
+      "html": "<div class=\"ds-night-wrap\"><a class=\"ds-btn-night\" href=\"#\"><span>Kayıt ol</span><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a></div>",
+      "css": ".ds-night-wrap { background: var(--night, oklch(0.22 0.035 35)); padding: 24px; } .ds-btn-night { display: inline-flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 56px; padding: 0 24px; background: var(--route-light, oklch(0.74 0.12 262)); color: var(--night, oklch(0.22 0.035 35)); text-decoration: none; border-radius: 0; font-family: var(--font-archivo), Archivo, ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.06em; text-transform: uppercase; font-stretch: 115%; transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), gap 0.3s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-night:hover { background: var(--night-ink, oklch(0.93 0.025 45)); gap: 32px; } .ds-btn-night:focus-visible { outline: 2px solid var(--route-light, oklch(0.74 0.12 262)); outline-offset: 3px; }"
+    },
+    {
+      "name": "Text Action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Secondary route-coloured link: uppercase action type, 40% underline that firms on hover, sliding arrow.",
+      "html": "<a class=\"ds-link-action\" href=\"#\"><span>Tüm galeri</span><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a>",
+      "css": ".ds-link-action { display: inline-flex; align-items: center; gap: 8px; color: var(--route, oklch(0.46 0.2 266)); text-decoration: none; font-family: var(--font-archivo), Archivo, ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.06em; text-transform: uppercase; font-stretch: 115%; } .ds-link-action span { text-decoration: underline; text-decoration-color: color-mix(in oklch, var(--route, oklch(0.46 0.2 266)) 40%, transparent); text-underline-offset: 0.22em; } .ds-link-action:hover span { text-decoration-color: var(--route, oklch(0.46 0.2 266)); } .ds-link-action svg { transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); } .ds-link-action:hover svg { transform: translateX(4px); } .ds-link-action:focus-visible { outline: 2px solid var(--route, oklch(0.46 0.2 266)); outline-offset: 3px; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Square ink-framed field with a map-label label; route border and 30% route ring on focus.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">E-posta</span><input class=\"ds-input\" type=\"email\" placeholder=\"ornek@email.com\"></label>",
+      "css": ".ds-field { display: block; font-family: var(--font-archivo), Archivo, ui-sans-serif, system-ui, sans-serif; } .ds-field-label { display: block; margin-bottom: 8px; color: var(--ink, oklch(0.26 0.05 38)); font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-stretch: 112%; font-variant-numeric: tabular-nums; } .ds-input { width: 100%; min-height: 56px; padding: 0 16px; border: 1px solid var(--ink, oklch(0.26 0.05 38)); border-radius: 0; background: var(--sheet, oklch(0.885 0.04 42)); color: var(--ink, oklch(0.26 0.05 38)); font: inherit; font-size: 1rem; transition: background-color 0.15s; } .ds-input::placeholder { color: color-mix(in oklch, var(--ink-soft, oklch(0.41 0.06 38)) 70%, transparent); } .ds-input:hover { background: color-mix(in oklch, var(--sheet-deep, oklch(0.83 0.055 40)) 40%, var(--sheet, oklch(0.885 0.04 42))); } .ds-input:focus { outline: none; border-color: var(--route, oklch(0.46 0.2 266)); box-shadow: 0 0 0 2px color-mix(in oklch, var(--route, oklch(0.46 0.2 266)) 30%, transparent); }"
+    },
+    {
+      "name": "Segmented Choice",
+      "kind": "input",
+      "refersTo": "segmented-option-selected",
+      "description": "Two-cell choice inside one ink frame; the selected cell fills with ink.",
+      "html": "<div class=\"ds-seg\"><label><input type=\"radio\" name=\"ds-r\" checked><span>Evet</span></label><label><input type=\"radio\" name=\"ds-r\"><span>Hayır</span></label></div>",
+      "css": ".ds-seg { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--ink, oklch(0.26 0.05 38)); font-family: var(--font-archivo), Archivo, ui-sans-serif, system-ui, sans-serif; } .ds-seg label { cursor: pointer; } .ds-seg label + label { border-left: 1px solid var(--ink, oklch(0.26 0.05 38)); } .ds-seg input { position: absolute; opacity: 0; width: 1px; height: 1px; } .ds-seg span { display: flex; min-height: 56px; align-items: center; justify-content: center; font-weight: 600; font-size: 0.875rem; color: var(--ink, oklch(0.26 0.05 38)); background: var(--sheet, oklch(0.885 0.04 42)); transition: background-color 0.15s; } .ds-seg label:hover span { background: color-mix(in oklch, var(--sheet-deep, oklch(0.83 0.055 40)) 50%, var(--sheet, oklch(0.885 0.04 42))); } .ds-seg input:checked + span { background: var(--ink, oklch(0.26 0.05 38)); color: var(--sheet, oklch(0.885 0.04 42)); } .ds-seg input:focus-visible + span { outline: 2px solid var(--route, oklch(0.46 0.2 266)); outline-offset: -2px; }"
+    },
+    {
+      "name": "Header",
+      "kind": "nav",
+      "refersTo": "header",
+      "description": "Sticky sheet-collar header: wordmark, wide-caps links with a route underline on the active page, compact Katıl button.",
+      "html": "<header class=\"ds-header\"><span class=\"ds-mark\"><svg width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" fill=\"none\" aria-hidden=\"true\"><path d=\"M6 18c3-6 6-11 10-11s7 5 10 11\" stroke=\"currentColor\" stroke-width=\"1.3\" stroke-linecap=\"round\"/><path d=\"M10 18c2-3.5 3.8-6 6-6s4 2.5 6 6\" stroke=\"currentColor\" stroke-width=\"1.3\" stroke-linecap=\"round\"/><path d=\"M3 25c5-1 6-9 13-9s8 8 13 7\" stroke=\"var(--route, oklch(0.46 0.2 266))\" stroke-width=\"2.6\" stroke-linecap=\"round\"/></svg><span><b lang=\"en\">CAPPADOCIA</b><small>Run Club</small></span></span><nav><a href=\"#\" aria-current=\"page\">Hakkımızda</a><a href=\"#\">Program</a><a href=\"#\">Galeri</a></nav><a class=\"ds-header-cta\" href=\"#\">Katıl <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a></header>",
+      "css": ".ds-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; padding: 0 24px; background: var(--sheet, oklch(0.885 0.04 42)); border-bottom: 1px solid var(--ink, oklch(0.26 0.05 38)); color: var(--ink, oklch(0.26 0.05 38)); font-family: var(--font-archivo), Archivo, ui-sans-serif, system-ui, sans-serif; } .ds-mark { display: flex; align-items: center; gap: 10px; line-height: 1; } .ds-mark b { display: block; font-size: 0.95rem; font-weight: 800; letter-spacing: 0.02em; font-stretch: 125%; } .ds-mark small { display: block; margin-top: 4px; color: var(--ink-soft, oklch(0.41 0.06 38)); font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-stretch: 112%; font-variant-numeric: tabular-nums; } .ds-header nav { display: flex; gap: 32px; } .ds-header nav a { color: var(--ink-soft, oklch(0.41 0.06 38)); text-decoration: none; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; font-stretch: 110%; transition: color 0.15s; } .ds-header nav a:hover { color: var(--ink, oklch(0.26 0.05 38)); } .ds-header nav a[aria-current=\"page\"] { color: var(--ink, oklch(0.26 0.05 38)); text-decoration: underline; text-decoration-color: var(--route, oklch(0.46 0.2 266)); text-decoration-thickness: 2px; text-underline-offset: 0.5em; } .ds-header nav a:focus-visible, .ds-header-cta:focus-visible { outline: 2px solid var(--route, oklch(0.46 0.2 266)); outline-offset: 3px; } .ds-header-cta { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 16px; background: var(--route, oklch(0.46 0.2 266)); color: var(--sheet, oklch(0.885 0.04 42)); text-decoration: none; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; font-stretch: 115%; transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), gap 0.3s cubic-bezier(0.16, 1, 0.3, 1); } .ds-header-cta:hover { background: var(--route-deep, oklch(0.36 0.18 266)); gap: 16px; }"
+    },
+    {
+      "name": "Neatline Inset",
+      "kind": "card",
+      "refersTo": "neatline-inset",
+      "description": "The map-inset frame that replaces cards: 1px ink border, 6px mat, graticule ticks, collar labels with an italic place name.",
+      "html": "<figure class=\"ds-neat\"><figcaption class=\"ds-neat-collar\"><i>Güllüdere Vadisi</i><span>Rose Valley · Göreme</span></figcaption><div class=\"ds-neat-frame\"><span class=\"ds-t ds-x1\"></span><span class=\"ds-t ds-x2\"></span><span class=\"ds-t ds-x3\"></span><span class=\"ds-b ds-x1\"></span><span class=\"ds-b ds-x2\"></span><span class=\"ds-b ds-x3\"></span><span class=\"ds-l ds-y1\"></span><span class=\"ds-l ds-y2\"></span><span class=\"ds-r ds-y1\"></span><span class=\"ds-r ds-y2\"></span><div class=\"ds-neat-img\"></div></div><div class=\"ds-neat-collar\"><span>38°39′05″ K</span><span>34°50′10″ D</span></div></figure>",
+      "css": ".ds-neat { margin: 0; max-width: 420px; font-family: var(--font-archivo), Archivo, ui-sans-serif, system-ui, sans-serif; } .ds-neat-collar { display: flex; justify-content: space-between; gap: 16px; margin: 8px 0; color: var(--ink-soft, oklch(0.41 0.06 38)); font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-stretch: 112%; font-variant-numeric: tabular-nums; } .ds-neat-collar i { font-style: italic; font-stretch: 100%; text-transform: none; letter-spacing: normal; font-size: 0.8rem; } .ds-neat-frame { position: relative; border: 1px solid var(--ink, oklch(0.26 0.05 38)); padding: 6px; } .ds-neat-frame > span { position: absolute; background: var(--ink, oklch(0.26 0.05 38)); } .ds-t { top: -8px; width: 1px; height: 8px; } .ds-b { bottom: -8px; width: 1px; height: 8px; } .ds-l { left: -8px; width: 8px; height: 1px; } .ds-r { right: -8px; width: 8px; height: 1px; } .ds-x1 { left: 25%; } .ds-x2 { left: 50%; } .ds-x3 { left: 75%; } .ds-y1 { top: 33.33%; } .ds-y2 { top: 66.66%; } .ds-neat-img { aspect-ratio: 4 / 3; background: var(--sheet-deep, oklch(0.83 0.055 40)); }"
+    },
+    {
+      "name": "Legend Row",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Ruled definition-list rows with a drawn cartographic symbol, wide-caps term, and ink-soft description; replaces feature cards.",
+      "html": "<dl class=\"ds-legend\"><div><svg viewBox=\"0 0 40 40\" fill=\"none\" aria-hidden=\"true\"><path d=\"M3 28c6 0 6-14 13-14s6 12 12 12 6-10 9-10\" stroke=\"var(--route, oklch(0.46 0.2 266))\" stroke-width=\"3.2\" stroke-linecap=\"round\"/></svg><dt>Koşu</dt><dd>Bitiş çizgisi yok, yarış yok. Herkes kendi temposunda.</dd></div><div><svg viewBox=\"0 0 40 40\" fill=\"none\" aria-hidden=\"true\"><path d=\"M3 28c6 0 6-14 13-14s6 12 12 12 6-10 9-10\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-dasharray=\"1 4.5\"/></svg><dt>Yürüyüş de olur</dt><dd>İster yürü, ister koş.</dd></div></dl>",
+      "css": ".ds-legend { margin: 0; border-top: 1px solid var(--ink, oklch(0.26 0.05 38)); color: var(--ink, oklch(0.26 0.05 38)); font-family: var(--font-archivo), Archivo, ui-sans-serif, system-ui, sans-serif; } .ds-legend > div { display: grid; grid-template-columns: 4rem 10rem 1fr; column-gap: 20px; align-items: center; padding: 24px 0; border-bottom: 1px solid var(--ink, oklch(0.26 0.05 38)); } .ds-legend svg { width: 56px; height: 56px; } .ds-legend dt { font-weight: 800; text-transform: uppercase; letter-spacing: 0.02em; font-stretch: 120%; } .ds-legend dd { margin: 0; color: var(--ink-soft, oklch(0.41 0.06 38)); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Topographic Route Sheet",
+    "overview": "Every page is a printed 1:25 000 survey sheet of Güllüdere (Rose Valley). The ground is tuff-rose paper carrying sienna contour lines, the text is umber print ink, and the Sunday run is the one thing drawn on top in ultramarine. Because the route is the run, ultramarine is also the only colour that means \"act\". Photos are not decorations floating on the page; they are map insets, held in hairline neatline frames with graticule ticks and collar labels outside the frame.\n\nDensity is that of a well-made sheet: generous margins, a strict 12-column field, hairline rules in ink doing all of the structural work. Sections alternate between three printed grounds (full contour sheet, quiet contour sheet, plain or deep sheet) and a dark umber \"night sheet\" band used where the page asks for commitment. Nothing is rounded, nothing floats, nothing glows.\n\nThe world refuses the sports-club hero (black ground, action photo, red button) and the tourist brochure (balloons, sunsets). Imagery is only the club's own photographs; the contour artwork is generated deterministically by `scripts/generate-contours.mjs` (seed 1931) into `public/images/topo/{sheet,night,quiet}.svg`. No generated rasters ship.",
+    "keyCharacteristics": [
+      "Tuff-rose paper ground with generated contour lines (minor 0.8px, every fifth an index contour at 1.6px).",
+      "Umber ink for all type and all rules; ultramarine reserved for the route and for action.",
+      "Archivo variable: wide heavy caps for display, regular for reading, italic for place names.",
+      "Square corners everywhere; hairline 1px ink borders instead of surfaces or shadows.",
+      "Neatline insets and legend rows instead of cards.",
+      "One authored motion moment: the hero route draws itself, then the meeting pin drops."
+    ],
+    "rules": [
+      {
+        "name": "The One Route Rule",
+        "body": "Ultramarine is the route, and the route is the only action colour. If something is tappable and primary, it is ultramarine; if something is ultramarine, it is either the drawn route, the meeting pin, or an action. No second accent exists.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ink Does The Structure Rule",
+        "body": "Every border, rule, divider and frame is umber ink (or night-soft on night bands), at full strength for structure and at 25-30% for internal dividers. Colour never separates regions; rules and grounds do.",
+        "section": "colors"
+      },
+      {
+        "name": "The Width Axis Rule",
+        "body": "Hierarchy is carried by width as much as weight: 125% for display, 112-120% for labels and titles, 100% for reading. Under 640px the display width drops from 125% to 100% so long Turkish words (PROGRAMLARIMIZ) fit a phone; long display words additionally carry soft hyphens (`Program­larımız`, `Etkinlikleri­mizden`).",
+        "section": "typography"
+      },
+      {
+        "name": "The Dotted İ Rule",
+        "body": "The document is `lang=\"tr\"`, so uppercased English brand strings (CAPPADOCIA, the copyright and credit lines, the Instagram handle when uppercased) are wrapped in `lang=\"en\"` to keep a dotless capital I. Turkish words stay in Turkish casing.",
+        "section": "typography"
+      },
+      {
+        "name": "The Place Name Rule",
+        "body": "Place names in collars (Güllüdere Vadisi, Avanos) are set italic at 100% width, sentence case, normal tracking. Italic is not used for emphasis anywhere else.",
+        "section": "typography"
+      },
+      {
+        "name": "The Printed Sheet Rule",
+        "body": "Nothing floats. Surfaces are separated by ink rules and ground changes, never by shadow, blur or glow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** reserve route ultramarine for the drawn route, the meeting pin, and actions; deepen to route-deep on hover, lift to route-light on night bands.",
+      "**Do** frame every photo as a neatline inset with collar labels, and use the club's own photographs only.",
+      "**Do** present grouped facts as legend rows: ruled ink lines, a drawn cartographic symbol, a wide-caps term.",
+      "**Do** keep every corner square (0) and every border a 1px ink hairline.",
+      "**Do** set display type in Archivo at 850 / wdth 125% caps, dropping to wdth 100% under 640px, and add soft hyphens to long Turkish display words.",
+      "**Do** wrap uppercased English brand strings in `lang=\"en\"`.",
+      "**Do** set place names in italic at 100% width.",
+      "**Do** open each page with a sheet title block and a collar line.",
+      "**Do** regenerate contour artwork only through `scripts/generate-contours.mjs` so it stays deterministic."
+    ],
+    "donts": [
+      "**Don't** introduce a second accent colour or use ultramarine as decoration.",
+      "**Don't** use cards, rounded corners, or drop shadows to separate content.",
+      "**Don't** add motion beyond the single hero route draw-on and pin drop; never make the hidden state the default.",
+      "**Don't** use balloon, sunset, or black-ground action-photo heroes.",
+      "**Don't** use alert red for anything but errors.",
+      "**Don't** ship generated or stock raster imagery."
+    ]
+  }
+}

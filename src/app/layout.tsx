@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Archivo } from "next/font/google";
 import "./globals.css";
 
-// Primary font: Similar to Gill Sans (using Roboto as web-safe alternative)
-const roboto = Roboto({
-  variable: "--font-sans",
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "700", "900"],
+  axes: ["wdth"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
   title: "Cappadocia Run Club",
-  description: "İlk kez koşmaya başlayacaklardan yeni başlayanlara ve deneyimli koşuculara kadar herkese uygun bir kulüp.",
+  description:
+    "Kapadokya'nın ilk koşu kulübü. Her pazar Rose Valley'de, her seviyeye açık sosyal koşu. Tempon senin, yolculuk bizimle.",
 };
 
 export default function RootLayout({
@@ -20,10 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="tr" className={`${roboto.variable} h-full`}>
-      <body className="min-h-full flex flex-col font-sans antialiased">
-        {children}
-      </body>
+    <html lang="tr" data-scroll-behavior="smooth" className={`${archivo.variable} h-full`}>
+      <body className="min-h-full flex flex-col antialiased">{children}</body>
     </html>
   );
 }

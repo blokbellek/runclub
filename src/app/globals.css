@@ -4,159 +4,232 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/*
+ * Topographic sheet world.
+ * sheet  — tuff-rose ground of Güllüdere (Rose Valley)
+ * ink    — umber print ink
+ * contour— sienna contour ink
+ * route  — ultramarine route line; the only action color
+ * night  — dark umber bands
+ */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --color-sheet: var(--sheet);
+  --color-sheet-deep: var(--sheet-deep);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-contour: var(--contour);
+  --color-route: var(--route);
+  --color-route-deep: var(--route-deep);
+  --color-route-light: var(--route-light);
+  --color-night: var(--night);
+  --color-night-ink: var(--night-ink);
+  --color-night-soft: var(--night-soft);
+  --color-alert: var(--alert);
+
+  --color-background: var(--sheet);
+  --color-foreground: var(--ink);
+  --color-primary: var(--route);
+  --color-primary-foreground: var(--sheet);
+  --color-ring: var(--route);
+  --color-border: var(--ink);
+  --color-input: var(--ink);
+
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, monospace;
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
+
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 :root {
-  /* Base colors from target site */
-  --background: oklch(1 0 0); /* white */
-  --foreground: oklch(0 0 0); /* black */
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0 0 0);
-  --primary: oklch(0 0 0); /* black - used for primary buttons */
-  --primary-foreground: oklch(1 0 0); /* white text */
-  --secondary: oklch(0.271 0 0); /* rgb(49,49,49) dark gray */
-  --secondary-foreground: oklch(1 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.407 0 0); /* rgb(81,81,81) gray */
-  --accent: oklch(0.533 0.169 27.325); /* rgb(229,32,52) red accent */
-  --accent-foreground: oklch(1 0 0);
-  --destructive: oklch(0.533 0.169 27.325); /* red */
-  --border: oklch(0 0 0); /* black border for buttons */
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
+  --sheet: oklch(0.885 0.04 42);
+  --sheet-deep: oklch(0.83 0.055 40);
+  --ink: oklch(0.26 0.05 38);
+  --ink-soft: oklch(0.41 0.06 38);
+  --contour: oklch(0.5 0.11 40);
+  --route: oklch(0.46 0.2 266);
+  --route-deep: oklch(0.36 0.18 266);
+  --route-light: oklch(0.74 0.12 262);
+  --night: oklch(0.22 0.035 35);
+  --night-ink: oklch(0.93 0.025 45);
+  --night-soft: oklch(0.8 0.04 45);
+  --alert: oklch(0.48 0.17 28);
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  /* shadcn compatibility */
+  --background: var(--sheet);
+  --foreground: var(--ink);
+  --radius: 0;
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-ink;
   }
-  body {
-    @apply bg-background text-foreground;
-    overflow-x: hidden;
-  }
+
   html {
-    @apply font-sans;
     scroll-behavior: smooth;
     overflow-x: hidden;
+    scrollbar-color: var(--contour) var(--sheet-deep);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-sheet text-ink font-sans;
+    overflow-x: hidden;
+    font-feature-settings: "kern", "liga";
+    caret-color: var(--route);
+  }
+
+  ::selection {
+    background: var(--route);
+    color: var(--sheet);
+  }
+
+  a {
+    text-underline-offset: 0.22em;
+    text-decoration-thickness: 1px;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--route);
+    outline-offset: 3px;
+  }
+
+  .night :focus-visible {
+    outline-color: var(--route-light);
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
   }
 }
 
-@keyframes marquee {
-  0% {
-    transform: translateX(0%);
+@layer components {
+  /* The printed sheet: ground color with contour lines. */
+  .sheet {
+    background-color: var(--sheet);
+    background-image: url("/images/topo/sheet.svg");
+    background-size: cover;
+    background-position: center;
   }
-  100% {
-    transform: translateX(-50%);
+
+  .sheet-plain {
+    background-color: var(--sheet);
   }
+
+  .night {
+    background-color: var(--night);
+    background-image: url("/images/topo/night.svg");
+    background-size: cover;
+    background-position: center;
+    color: var(--night-ink);
+  }
+
+  /* Quieter contours behind reading sections. */
+  .sheet-quiet {
+    background-color: var(--sheet);
+    background-image: url("/images/topo/quiet.svg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* Wide heavy caps for display lettering. */
+  .display {
+    font-stretch: 125%;
+    font-weight: 850;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    min-width: 0;
+  }
+
+  /* Long Turkish words (PROGRAMLARIMIZ) must fit a phone: narrow the width axis. */
+  @media (max-width: 639px) {
+    .display {
+      font-stretch: 100%;
+    }
+  }
+
+  /* Map labels: small wide caps, like sheet collar lettering. */
+  .map-label {
+    font-stretch: 112%;
+    font-weight: 600;
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Place names on maps are set in italic. */
+  .place {
+    font-style: italic;
+    font-stretch: 100%;
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/*
+ * Route line draws itself once. The drawn state is the default; the hidden
+ * state lives only in the keyframe, so without motion the route is simply there.
+ */
+.route-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes route-draw {
+    from {
+      stroke-dashoffset: 1;
+    }
+  }
+
+  @keyframes pin-drop {
+    from {
+      opacity: 0;
+      transform: translateY(-6px) scale(0.9);
+    }
+  }
+
+  .route-draw {
+    animation: route-draw 2.4s var(--ease-out-expo) 0.35s backwards;
+  }
+
+  .pin-drop {
+    transform-origin: 50% 100%;
+    animation: pin-drop 0.6s var(--ease-out-expo) 2.1s backwards;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s var(--ease-out-expo);
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-6px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
-}
-
-.animate-marquee {
-  animation: marquee 30s linear infinite;
-  display: inline-block;
-}
-
-.animate-fadeIn {
-  animation: fadeIn 0.3s ease-out;
 }
