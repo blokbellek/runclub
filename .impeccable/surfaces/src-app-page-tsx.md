@@ -8,7 +8,7 @@ related_targets: ["src/app/hakkimizda/page.tsx","src/app/program/page.tsx","src/
 Scope: whole site (home, hakkimizda, program, galeri, bize-katilin, aydinlatma-metni) in one replacement world. Mode: Persuade.
 Audience/job: Cappadocia locals arriving from Instagram on a phone; decide "can I join?" then apply on /bize-katilin.
 Proof/content: real photos (hero-background.jpg Rose Valley, gallery 1-8, activities 1-3), real copy from incumbent components. No invented times, counts or testimonials.
-Constraints: keep slogan "İyi ki Cappadocia"; avoid tourist-brochure feel (no balloon/sunset hero).
+Constraints: keep slogan "Biz yolları değil, Kapadokya’yı koşarız." / "We don’t run roads. We run Cappadocia."; avoid tourist-brochure feel (no balloon/sunset hero).
 
 ## Direction contract
 

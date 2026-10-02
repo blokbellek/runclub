@@ -25,13 +25,15 @@ export function Frames() {
   return (
     <section aria-labelledby="frames-title" className="sheet-quiet border-b border-ink">
       <div className="mx-auto max-w-[90rem] px-4 py-20 sm:px-6 md:py-28 lg:px-10">
-        <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+        <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <h2 id="frames-title" className="display text-[clamp(2.25rem,4.4vw,4rem)]">
-            Vadiden kareler
+            {/* The 18-letter word only fits wide screens; narrower ones break it at a syllable. */}
+            <span className="md:hidden">{"Etkinlikleri­mizden kareler"}</span>
+            <span className="hidden md:inline">Etkinliklerimizden kareler</span>
           </h2>
           <Link
             href="/galeri"
-            className="group inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.06em] text-route [font-stretch:115%]"
+            className="group inline-flex shrink-0 items-center gap-2 whitespace-nowrap text-sm font-bold uppercase tracking-[0.06em] text-route [font-stretch:115%]"
           >
             <span className="underline decoration-route/40 group-hover:decoration-route">Tüm galeri</span>
             <ArrowRight aria-hidden className="size-4 transition-transform duration-300 ease-out-expo group-hover:translate-x-1" />

@@ -25,14 +25,13 @@ export function Hero() {
           />
 
           <div className="relative order-2 lg:order-1 lg:col-span-6">
-            <h1 className="display text-[clamp(2.75rem,5vw,5.5rem)] text-ink">
-              İYİ Kİ
-              <br />
-              <span lang="en" className="whitespace-nowrap">
-                CAPPADOCIA
-              </span>
+            <h1 className="display text-[clamp(2.125rem,3.6vw,4rem)] leading-[1.06] text-ink">
+              Biz yolları değil, <span className="whitespace-nowrap">Kapadokya’yı</span> koşarız.
             </h1>
-            <p className="mt-6 max-w-md text-lg leading-relaxed text-ink-soft sm:text-xl">
+            <p lang="en" className="map-label mt-5 text-[0.8125rem] text-ink-soft">
+              We don’t run roads. We run Cappadocia.
+            </p>
+            <p className="mt-7 max-w-md text-lg leading-relaxed text-ink-soft sm:text-xl">
               Kapadokya&rsquo;nın vadilerinde her pazar buluşan koşu topluluğu.{" "}
               <span className="font-semibold text-ink">Tempon senin, yolculuk bizimle.</span>
             </p>

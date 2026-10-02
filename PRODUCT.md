@@ -37,7 +37,7 @@ A social run club, not a training club. No finish line, no race, no pace pressur
 ## Brand Commitments
 
 - Name: Cappadocia Run Club.
-- Slogan "İyi ki Cappadocia" must stay.
+- Slogan: "Biz yolları değil, Kapadokya’yı koşarız." with the English line "We don’t run roads. We run Cappadocia." beneath it (chosen by the user on 2026-10-01; replaces "İyi ki Cappadocia").
 - Everything else (colors, logo treatment, type) may be redesigned. Logo files are in `public/images/` (logo.svg, logo.png, header-logo.png).
 - Voice: warm, informal Turkish, second-person "sen".
 
