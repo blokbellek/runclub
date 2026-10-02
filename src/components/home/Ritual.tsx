@@ -1,16 +1,12 @@
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
 import { Neatline } from "../map/Neatline";
 import { FootpathSymbol, PinSymbol, RouteSymbol, TeaSymbol } from "../map/symbols";
-
-const MAPS_URL = "https://www.google.com/maps?q=38.651405334472656,34.836097717285156&z=17&hl=tr";
 
 const LEGEND = [
   {
     symbol: PinSymbol,
     term: "Buluşma",
     text: "Her pazar buluşuyoruz. Haftanın rotasını ve saatini Instagram'dan duyuruyoruz.",
-    link: { href: MAPS_URL, label: "Rose Valley buluşma noktası" },
   },
   {
     symbol: RouteSymbol,
@@ -42,7 +38,7 @@ export function Ritual() {
           </p>
 
           <dl className="mt-12 border-t border-ink">
-            {LEGEND.map(({ symbol: Symbol, term, text, link }) => (
+            {LEGEND.map(({ symbol: Symbol, term, text }) => (
               <div key={term} className="grid grid-cols-[3.5rem_1fr] gap-x-5 border-b border-ink py-6 sm:grid-cols-[4rem_10rem_1fr]">
                 <Symbol className="row-span-2 size-12 text-ink sm:row-span-1 sm:size-14" />
                 <dt className="self-center text-base font-extrabold uppercase tracking-[0.02em] [font-stretch:120%]">
@@ -50,17 +46,6 @@ export function Ritual() {
                 </dt>
                 <dd className="col-start-2 mt-1 text-ink-soft sm:col-start-3 sm:mt-0 sm:self-center">
                   {text}
-                  {link && (
-                    <a
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-2 flex w-fit items-center gap-1 font-semibold text-route underline decoration-route/40 hover:decoration-route"
-                    >
-                      {link.label}
-                      <ArrowUpRight aria-hidden className="size-4" />
-                    </a>
-                  )}
                 </dd>
               </div>
             ))}
